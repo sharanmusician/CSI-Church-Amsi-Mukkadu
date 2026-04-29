@@ -144,21 +144,10 @@
         .quad-card h3 { font-size: 12px; margin-bottom: 12px; font-weight: 700; }
         .quad-img { height: 100px; width: 100%; border-radius: 8px; background: #222 center/cover; }
 
-        /* --- 4. DEPARTMENTS (SORTED & SCROLLABLE) --- */
+        /* --- 4. DEPARTMENTS (3 CIRCLES FIT) --- */
         .sec-peek { padding: 50px 0; overflow: hidden; position: relative; }
         .peek-header { padding: 0 var(--side-pad) 20px; font-size: 13px; font-weight: 700; }
         
-        /* Fade effect for department scroll */
-        .sec-peek::after {
-            content: '';
-            position: absolute;
-            top: 60px; right: 0;
-            width: 50px; height: 180px;
-            background: linear-gradient(to left, var(--bg), transparent);
-            pointer-events: none;
-            z-index: 2;
-        }
-
         .peek-scroll { 
             display: flex; 
             gap: 15px; 
@@ -170,7 +159,7 @@
         .peek-scroll::-webkit-scrollbar { display: none; }
 
         .peek-item { 
-            flex: 0 0 calc(33.333% - 10px); /* Exactly 3 fit on screen */
+            flex: 0 0 calc(33.333% - 10px); 
             text-align: center; 
         }
         .peek-circle { 
@@ -180,25 +169,9 @@
             margin-bottom: 10px; background: var(--surface) center/cover; overflow: hidden;
         }
         .peek-circle img { width: 100%; height: 100%; object-fit: cover; }
-        .peek-item p { 
-            font-size: 10px; 
-            font-weight: 600; 
-            opacity: 0.7; 
-            white-space: nowrap; 
-            overflow: hidden; 
-            text-overflow: ellipsis; 
-        }
+        .peek-item p { font-size: 10px; font-weight: 600; opacity: 0.7; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
-        /* --- 5. IMMERSIVE FEATURE --- */
-        .sec-wide-feat {
-            margin: 20px var(--side-pad); padding: 40px; border-radius: var(--radius-xl);
-            background: linear-gradient(90deg, rgba(0,0,0,0.9) 40%, transparent),
-                        url('https://images.unsplash.com/photo-1515162305285-0293e4767cc2?auto=format&fit=crop&q=80&w=1200') center/cover;
-            border: 1px solid var(--border);
-        }
-        .wide-content h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-bottom: 15px; }
-
-        /* --- 6. DATA STRIP --- */
+        /* --- 5. DATA STRIP --- */
         .sec-strip {
             display: flex; 
             flex-wrap: nowrap; 
@@ -221,7 +194,6 @@
         @media (max-width: 600px) {
             .sec-hero { margin-top: 280px; height: 50vh; }
             .brand-authority h2 { font-size: 1.3rem; }
-            .sec-wide-feat h2 { font-size: 1.8rem; }
         }
     </style>
 </head>
@@ -273,7 +245,7 @@
                 <div class="quad-img" style="background-image: url('https://images.unsplash.com/photo-1519491050282-cf00c82424b4?auto=format&fit=crop&q=80&w=400');"></div>
             </div>
             <div class="quad-card">
-                <h3>Gallery</h3>
+                <h3>Impact</h3>
                 <div class="quad-img" style="background-image: url('https://images.unsplash.com/photo-1515162305285-0293e4767cc2?auto=format&fit=crop&q=80&w=400');"></div>
             </div>
         </section>
@@ -304,24 +276,29 @@
             </div>
         </section>
 
-        <section class="sec-wide-feat">
-            <div class="wide-content">
-                <p style="color: var(--gold); font-size: 10px; font-weight: 700; letter-spacing: 2px;">AUDIT</p>
-                <h2>2026 Transparency.</h2>
-                <a href="#" style="color:#fff; font-size:12px; font-weight:700; text-decoration:none; border-bottom:1px solid var(--gold)">Download Report</a>
-            </div>
-        </section>
-
         <section class="sec-strip">
             <div class="strip-item"><h5>PRESENCE</h5><p>Global</p></div>
             <div class="strip-item"><h5>ARCHIVE</h5><p>5k+ Hrs</p></div>
             <div class="strip-item"><h5>LIVE</h5><p>09:00 AM</p></div>
             <div class="strip-item"><h5>STATUS</h5><p>Active</p></div>
         </section>
+
+        <section style="margin: 40px var(--side-pad); text-align: center;">
+            <div style="padding: 30px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-xl);">
+                <h4 style="font-size: 11px; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; margin-bottom: 20px;">Find Us</h4>
+                <a href="https://maps.app.goo.gl/d1YNnDhY5mWoYFDj8?g_st=ac" target="_blank" style="text-decoration: none;">
+                    <div style="height: 180px; width: 100%; border-radius: var(--radius-lg); background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&q=80&w=1000') center/cover; display: flex; align-items: center; justify-content: center; border: 1px solid var(--border);">
+                        <div style="background: rgba(0,0,0,0.8); padding: 12px 24px; border-radius: 50px; border: 1px solid var(--gold); color: #fff; font-size: 11px; font-weight: 700; letter-spacing: 1px;">OPEN GOOGLE MAPS</div>
+                    </div>
+                </a>
+            </div>
+        </section>
     </main>
 
-    <footer style="padding: 60px 0; text-align: center; opacity: 0.4; font-size: 9px; letter-spacing: 4px;">
-        © 2026 AMSI MUKKADU PASTORATE CHURCH
+    <footer style="padding: 40px 0; text-align: center; border-top: 1px solid var(--border); margin-top: 20px;">
+        <p style="font-size: 7px; letter-spacing: 2px; opacity: 0.3; text-transform: uppercase; font-weight: 700;">
+            © 2026 AMSI MUKKADU PASTORATE CHURCH
+        </p>
     </footer>
 
 </body>
