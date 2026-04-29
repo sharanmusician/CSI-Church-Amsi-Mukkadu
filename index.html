@@ -146,7 +146,7 @@
 
         /* --- 4. DEPARTMENTS (3 CIRCLES FIT) --- */
         .sec-peek { padding: 50px 0; overflow: hidden; position: relative; }
-        .peek-header { padding: 0 var(--side-pad) 20px; font-size: 13px; font-weight: 700; }
+        .peek-header { font-size: 13px; font-weight: 700; }
         
         .peek-scroll { 
             display: flex; 
@@ -155,12 +155,14 @@
             overflow-x: auto;
             scrollbar-width: none;
             -webkit-overflow-scrolling: touch;
+            transition: all 0.4s ease;
         }
         .peek-scroll::-webkit-scrollbar { display: none; }
 
         .peek-item { 
             flex: 0 0 calc(33.333% - 10px); 
             text-align: center; 
+            transition: all 0.3s ease;
         }
         .peek-circle { 
             width: 100%; 
@@ -170,6 +172,17 @@
         }
         .peek-circle img { width: 100%; height: 100%; object-fit: cover; }
         .peek-item p { font-size: 10px; font-weight: 600; opacity: 0.7; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+        /* Expanded Logic */
+        .expanded-grid {
+            flex-wrap: wrap;
+            overflow-x: hidden;
+            justify-content: center;
+        }
+        .expanded-grid .peek-item {
+            flex: 0 0 calc(33.333% - 15px);
+            margin-bottom: 20px;
+        }
 
         /* --- 5. DATA STRIP --- */
         .sec-strip {
@@ -251,8 +264,11 @@
         </section>
 
         <section class="sec-peek">
-            <div class="peek-header">DEPARTMENTS</div>
-            <div class="peek-scroll">
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 0 var(--side-pad) 20px;">
+                <div class="peek-header">DEPARTMENTS</div>
+                <button id="toggleView" onclick="toggleDepartments()" style="background: none; border: 1px solid var(--gold); color: var(--gold); font-size: 9px; font-weight: 700; padding: 5px 12px; border-radius: 4px; letter-spacing: 1px; cursor: pointer; text-transform: uppercase;">Expanded View</button>
+            </div>
+            <div class="peek-scroll" id="deptContainer">
                 <div class="peek-item">
                     <div class="peek-circle"><img src="https://images.unsplash.com/photo-1544427928-c49cd049cc63?auto=format&fit=crop&q=80&w=300"></div>
                     <p>Sunday School</p>
@@ -300,6 +316,21 @@
             © 2026 AMSI MUKKADU PASTORATE CHURCH
         </p>
     </footer>
+
+    <script>
+        function toggleDepartments() {
+            const container = document.getElementById('deptContainer');
+            const btn = document.getElementById('toggleView');
+            
+            if (container.classList.contains('expanded-grid')) {
+                container.classList.remove('expanded-grid');
+                btn.innerText = "Expanded View";
+            } else {
+                container.classList.add('expanded-grid');
+                btn.innerText = "Compact View";
+            }
+        }
+    </script>
 
 </body>
 </html>
