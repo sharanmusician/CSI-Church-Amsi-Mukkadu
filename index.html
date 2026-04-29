@@ -3,173 +3,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE SANCTUARY | Fluid Global Presence</title>
+    <title>THE SANCTUARY | Cinematic Modular</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;600&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
 
     <style>
         :root {
             --gold: #C5A059;
             --bg: #030303;
-            --surface: #0A0A0C;
-            --text: #FFFFFF;
-            --text-dim: rgba(255, 255, 255, 0.4);
-            --border: rgba(255, 255, 255, 0.07);
-            --p-global: 6%;
-            --radius: 45px; /* The "Curve" that kills the boxiness */
+            --surface: #0D0D0E;
+            --border: rgba(255, 255, 255, 0.08);
+            --radius: 32px;
+            --ease: cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
-        body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; overflow-x: hidden; }
+        body { background: var(--bg); color: #fff; font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; }
 
-        /* --- NAVIGATION: FLOATING PILL --- */
+        /* --- 1. THE FLOATING NAV (APPLE STYLE) --- */
         nav {
-            position: fixed; top: 15px; width: 90%; left: 5%; height: 65px;
-            display: flex; justify-content: center; z-index: 1000;
-            backdrop-filter: blur(25px); border: 1px solid var(--border);
-            border-radius: 100px; /* Pill shape */
+            position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+            width: 90%; max-width: 1200px; height: 55px;
+            background: rgba(10, 10, 10, 0.7); backdrop-filter: blur(20px);
+            border: 1px solid var(--border); border-radius: 100px;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 25px; z-index: 1000;
         }
-        .nav-inner { width: 100%; max-width: 1600px; padding: 0 30px; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-family: 'Playfair Display', serif; font-size: 0.9rem; letter-spacing: 3px; color: #fff; text-decoration: none; text-transform: uppercase; }
+        .logo { font-family: 'Playfair Display', serif; font-size: 0.8rem; letter-spacing: 3px; color: #fff; text-decoration: none; text-transform: uppercase; }
 
-        /* --- BUTTONS: ROUNDED LUXURY --- */
-        .btn-lux {
-            padding: 12px 32px; background: var(--gold); color: #000;
-            font-weight: 700; font-size: 0.7rem; letter-spacing: 2px;
-            text-transform: uppercase; text-decoration: none; border-radius: 50px;
-            transition: 0.4s cubic-bezier(0.2, 1, 0.3, 1);
-        }
-        .btn-lux:hover { background: #fff; transform: scale(1.05); }
-
-        /* --- SECTION 1: HERO (CURVED BOTTOM) --- */
+        /* --- 2. THE HERO MONOLITH --- */
         .sec-hero {
-            height: 90vh; display: flex; align-items: flex-end;
-            padding: 0 var(--p-global) 100px;
-            background: linear-gradient(to top, var(--bg) 15%, transparent),
+            height: 90vh; display: flex; align-items: center; justify-content: center;
+            background: linear-gradient(to bottom, transparent, var(--bg)),
                         url('https://images.unsplash.com/photo-1478147427282-58a87a120781?auto=format&fit=crop&q=80&w=2000') center/cover;
-            background-attachment: fixed;
-            border-bottom-left-radius: var(--radius);
-            border-bottom-right-radius: var(--radius);
+            border-bottom-left-radius: var(--radius); border-bottom-right-radius: var(--radius);
+            text-align: center;
         }
-        .sec-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(3.5rem, 10vw, 8rem); line-height: 0.85; font-weight: 400; }
+        .sec-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 10vw, 7rem); line-height: 0.9; font-weight: 400; }
 
-        /* --- SECTION 2: THE COLLISION (STAGGERED & ROUNDED) --- */
-        .sec-collision {
-            padding: 120px var(--p-global);
-            background: var(--surface);
-            display: grid; grid-template-columns: repeat(12, 1fr);
-            margin-top: -80px; /* Overlap effect */
-            z-index: 5; position: relative;
-            border-radius: var(--radius); /* Rounded Container */
+        /* --- 3. THE DOUBLE-ROW (STAGGERED COLLISION) --- */
+        .sec-double {
+            display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 20px;
+            padding: 20px 5%; margin-top: -50px;
         }
-        .collision-img { 
-            grid-column: 1 / 9; height: 650px; 
-            background: url('https://images.unsplash.com/photo-1515162305285-0293e4767cc2?auto=format&fit=crop&q=80&w=1400') center/cover;
-            filter: contrast(1.1) grayscale(0.2); border-radius: var(--radius);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+        .double-item { 
+            height: 500px; background: var(--surface); border-radius: var(--radius);
+            overflow: hidden; border: 1px solid var(--border); position: relative;
         }
-        .collision-text { 
-            grid-column: 7 / 13; padding: 60px; background: var(--bg);
-            border: 1px solid var(--border); align-self: center; margin-left: -80px; 
-            border-radius: var(--radius); /* Rounded Text Box */
-            box-shadow: 0 40px 80px rgba(0,0,0,0.6);
-        }
-        .collision-text h2 { font-family: 'Playfair Display', serif; font-size: 2.8rem; margin: 15px 0; font-weight: 400; }
+        .double-item img { width: 100%; height: 100%; object-fit: cover; opacity: 0.5; transition: 0.8s var(--ease); }
+        .double-item:hover img { opacity: 0.8; transform: scale(1.05); }
+        .double-content { position: absolute; bottom: 40px; left: 40px; right: 40px; z-index: 2; }
 
-        /* --- SECTION 3: THE FILM STRIP (ROUNDED CAPSULES) --- */
-        .sec-film {
-            display: flex; gap: 20px; background: transparent; height: 60vh;
-            padding: 60px var(--p-global);
+        /* --- 4. THE DENSE STRIP (AMAZON UTILITY) --- */
+        .sec-strip {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+            background: var(--border); margin: 40px 5%; border-radius: 20px; overflow: hidden;
+            border: 1px solid var(--border);
         }
-        .film-cell { 
-            flex: 1; background-size: cover; background-position: center; 
-            filter: grayscale(1); transition: 0.8s cubic-bezier(0.2, 1, 0.3, 1);
-            border-radius: 100px; /* Massive curve on gallery */
-        }
-        .film-cell:hover { flex: 2.5; filter: grayscale(0); border-radius: var(--radius); }
+        .strip-cell { background: var(--bg); padding: 30px; text-align: left; }
+        .strip-cell h4 { color: var(--gold); font-size: 0.6rem; letter-spacing: 2px; margin-bottom: 8px; text-transform: uppercase; }
+        .strip-cell p { font-size: 0.9rem; opacity: 0.8; }
 
-        /* --- SECTION 4: THE GRID (BENTO ROUNDED) --- */
-        .sec-grid {
-            padding: 80px var(--p-global); display: grid;
-            grid-template-columns: repeat(3, 1fr); gap: 20px;
+        /* --- 5. ASYMMETRIC BENTO GRID --- */
+        .sec-bento { 
+            padding: 20px 5% 80px; display: grid; 
+            grid-template-columns: repeat(3, 1fr); gap: 20px; 
         }
-        .grid-card {
-            background: var(--surface); padding: 50px 40px; transition: 0.5s;
-            border-radius: var(--radius); border: 1px solid var(--border);
+        .bento-card {
+            background: var(--surface); border-radius: var(--radius);
+            padding: 40px; border: 1px solid var(--border); min-height: 300px;
             display: flex; flex-direction: column; justify-content: flex-end;
-            min-height: 350px;
         }
-        .grid-card:hover { border-color: var(--gold); transform: translateY(-10px); }
-        .grid-card h3 { color: var(--gold); font-size: 0.65rem; letter-spacing: 4px; margin-bottom: 20px; text-transform: uppercase; }
-        .grid-card p { font-size: 1.6rem; font-family: 'Playfair Display', serif; line-height: 1.2; font-weight: 400; }
+        .bento-card.tall { grid-row: span 2; min-height: 620px; background: var(--gold); color: #000; }
+        .bento-card h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-top: 15px; font-weight: 400; line-height: 1.1; }
 
-        /* --- MOBILE ADAPTATION --- */
+        /* --- MOBILE OPTIMIZATION --- */
         @media (max-width: 900px) {
-            :root { --radius: 30px; }
-            nav { width: 95%; left: 2.5%; top: 10px; }
-            .sec-hero { height: 80vh; padding-bottom: 60px; }
-            .sec-collision { display: flex; flex-direction: column; padding: 60px 5%; }
-            .collision-img { width: 100%; height: 350px; }
-            .collision-text { margin-left: 0; margin-top: -50px; padding: 40px 25px; width: 100%; }
-            .sec-film { height: auto; flex-direction: column; gap: 15px; padding: 40px 5%; }
-            .film-cell { height: 200px; flex: none; border-radius: 30px; }
-            .sec-grid { grid-template-columns: 1fr; padding: 40px 5%; }
-            .grid-card { min-height: 280px; }
+            .sec-double { grid-template-columns: 1fr; }
+            .double-item { height: 400px; }
+            .sec-strip { grid-template-columns: 1fr 1fr; }
+            .sec-bento { display: flex; flex-direction: column; }
+            .bento-card.tall { min-height: 400px; }
+            .sec-hero { height: 70vh; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="nav-inner">
-            <a href="#" class="logo">The Sanctuary</a>
-            <a href="#" class="btn-lux" style="padding: 10px 20px;">Portal</a>
-        </div>
+        <a href="#" class="logo">The Sanctuary</a>
+        <a href="#" style="color: var(--gold); text-decoration: none; font-size: 0.7rem; font-weight: 700; letter-spacing: 1px;">VAULT</a>
     </nav>
 
     <main>
         <section class="sec-hero">
             <div>
-                <span style="color: var(--gold); letter-spacing: 8px; font-weight: 600; font-size: 0.7rem;">01 // GLOBAL PORTAL</span>
+                <span style="color: var(--gold); letter-spacing: 8px; font-size: 0.7rem; font-weight: 600;">INSTITUTIONAL PORTAL</span>
                 <h1>Divine <br> <i>Architecture.</i></h1>
             </div>
         </section>
 
-        <section class="sec-collision">
-            <div class="collision-img"></div>
-            <div class="collision-text">
-                <span style="color: var(--gold); font-weight: 700; letter-spacing: 2px;">THE MANDATE</span>
-                <h2>Institutional <br> <i>Stillness.</i></h2>
-                <p style="color: var(--text-dim); margin-bottom: 30px; line-height: 1.8;">We treat pixels like sacred stones. Our layouts are engineered to eliminate digital noise and foster presence.</p>
-                <a href="#" class="btn-lux">Open Archive</a>
+        <section class="sec-double">
+            <div class="double-item">
+                <img src="https://images.unsplash.com/photo-1515162305285-0293e4767cc2?auto=format&fit=crop&q=80&w=1200" alt="Core">
+                <div class="double-content">
+                    <span style="color: var(--gold); font-size: 0.6rem; letter-spacing: 3px;">THE MANDATE</span>
+                    <h2 style="font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-top: 10px;">Engineering <br> Stillness.</h2>
+                </div>
+            </div>
+            <div class="double-item" style="background: var(--surface); display: flex; align-items: center; padding: 40px;">
+                <div>
+                    <p style="font-size: 1.1rem; line-height: 1.6; opacity: 0.7;">Breaking the digital noise with architectural precision. Every pixel is a stone in our global cathedral.</p>
+                    <a href="#" style="color: var(--gold); display: inline-block; margin-top: 25px; text-decoration: none; font-weight: 700; font-size: 0.8rem; border-bottom: 1px solid var(--gold);">LEARN MORE</a>
+                </div>
             </div>
         </section>
 
-        <section class="sec-film">
-            <div class="film-cell" style="background-image: url('https://images.unsplash.com/photo-1438232992991-995b7058bbb3?auto=format&fit=crop&w=800')"></div>
-            <div class="film-cell" style="background-image: url('https://images.unsplash.com/photo-1515162305285-0293e4767cc2?auto=format&fit=crop&w=800')"></div>
-            <div class="film-cell" style="background-image: url('https://images.unsplash.com/photo-1451187530220-af82429b8979?auto=format&fit=crop&w=800')"></div>
-            <div class="film-cell" style="background-image: url('https://images.unsplash.com/photo-1507671339927-142803362a4b?auto=format&fit=crop&w=800')"></div>
+        <section class="sec-strip">
+            <div class="strip-cell"><h4>Presence</h4><p>45 Nations Connected</p></div>
+            <div class="strip-cell"><h4>Archive</h4><p>5,000+ Hour Vault</p></div>
+            <div class="strip-cell"><h4>Audit</h4><p>Real-Time Transparency</p></div>
+            <div class="strip-cell" style="border: none;"><h4>Live</h4><p>Sunday 09:00 GMT</p></div>
         </section>
 
-        <section class="sec-grid">
-            <div class="grid-card">
-                <h3>V. 4.0 // IMPACT</h3>
-                <p>Global resource transparency in real-time.</p>
+        <section class="sec-bento">
+            <div class="bento-card tall">
+                <span style="font-size: 0.7rem; letter-spacing: 2px; font-weight: 700;">HIGHLIGHT</span>
+                <h3>The Global Impact Report <br> <i>FY 2026.</i></h3>
+                <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.8;">Full transparency on resource allocation and network expansion across all digital nodes.</p>
             </div>
-            <div class="grid-card">
-                <h3>V. 4.0 // ARCHIVE</h3>
-                <p>5,000+ hours of liturgical study 8K.</p>
+            <div class="bento-card">
+                <span style="color: var(--gold); font-size: 0.6rem; letter-spacing: 2px;">NETWORK</span>
+                <h3>Digital Node Infrastructure.</h3>
             </div>
-            <div class="grid-card">
-                <h3>V. 4.0 // LIVE</h3>
-                <p>Broadcasts connecting 45 nations weekly.</p>
+            <div class="bento-card">
+                <span style="color: var(--gold); font-size: 0.6rem; letter-spacing: 2px;">LITURGY</span>
+                <h3>8K High-Resolution Liturgical Studies.</h3>
             </div>
         </section>
     </main>
 
-    <footer style="padding: 80px var(--p-global); border-top: 1px solid var(--border); text-align: center; opacity: 0.5;">
-        <p style="letter-spacing: 10px; font-size: 0.5rem; text-transform: uppercase;">&copy; 2026 THE SANCTUARY GLOBAL INSTITUTION</p>
+    <footer style="padding: 60px 0; text-align: center; opacity: 0.3; border-top: 1px solid var(--border);">
+        <p style="letter-spacing: 8px; font-size: 0.5rem; text-transform: uppercase;">&copy; 2026 THE SANCTUARY GLOBAL</p>
     </footer>
 
 </body>
