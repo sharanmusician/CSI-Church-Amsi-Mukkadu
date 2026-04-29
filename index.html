@@ -3,68 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE SANCTUARY | Global Institutional Presence</title>
+    <title>THE SANCTUARY | Institutional Narrative</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            /* Corporate Luxury Palette */
+            /* Institutional Color Palette */
             --gold: #C5A059;
-            --bg: #080808;
-            --text: #FFFFFF;
+            --bg-deep: #050505;
+            --bg-surface: #0C0C0D;
+            --text-main: #FFFFFF;
             --text-dim: rgba(255, 255, 255, 0.5);
-            --border: rgba(255, 255, 255, 0.1);
-            --transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            --border: rgba(255, 255, 255, 0.08);
+            
+            /* Alignment Logic */
+            --grid-max: 1200px;
+            --gutter: 40px;
+            --transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        }
-
-        html {
-            scroll-snap-type: y mandatory; /* Cinematic Locking Scroll */
-            scroll-behavior: smooth;
+            outline: none;
         }
 
         body {
-            background-color: var(--bg);
-            color: var(--text);
+            background-color: var(--bg-deep);
+            color: var(--text-main);
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
 
-        /* --- ANIMATIONS --- */
-        @keyframes revealUp {
-            from { opacity: 0; transform: translateY(40px); }
+        /* --- GLOBAL ANIMATIONS --- */
+        @keyframes fadeSlideUp {
+            from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        @keyframes scaleHero {
-            from { transform: scale(1.1); opacity: 0; }
-            to { transform: scale(1); opacity: 0.4; }
-        }
-
-        /* --- NAVIGATION --- */
+        /* --- NAVIGATION: ALIGNED TO GRID --- */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            height: 90px;
+            height: 100px;
             display: flex;
             justify-content: center;
-            align-items: center;
             z-index: 1000;
-            border-bottom: 1px solid var(--border);
+            background: rgba(5, 5, 5, 0.85);
             backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
         }
 
         .nav-inner {
-            width: 90%;
-            max-width: 1400px;
+            width: 100%;
+            max-width: var(--grid-max);
+            padding: 0 var(--gutter);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -72,116 +69,122 @@
 
         .logo {
             font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
-            letter-spacing: 1px;
-            font-weight: 600;
-            color: var(--text);
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            font-weight: 500;
             text-decoration: none;
-        }
-
-        /* --- CINEMATIC SECTION SYSTEM --- */
-        section {
-            height: 100vh;
-            width: 100vw;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            scroll-snap-align: start; /* Locks section to screen */
-            position: relative;
-            padding: 0 5%;
-            overflow: hidden;
-        }
-
-        .content-wrap {
-            max-width: 1000px;
-            text-align: center;
-            z-index: 10;
-            animation: revealUp 1.2s var(--transition);
-        }
-
-        .tag {
-            color: var(--gold);
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            font-size: 0.7rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        h1, h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 8vw, 5rem);
-            line-height: 1.1;
-            margin-bottom: 30px;
-        }
-
-        p {
-            color: var(--text-dim);
-            font-size: clamp(1rem, 1.5vw, 1.2rem);
-            max-width: 650px;
-            margin: 0 auto 40px;
+            color: #fff;
         }
 
         /* --- ALIGNMENT PERFECT BUTTONS --- */
+        .btn-core {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 36px;
+            background: var(--gold);
+            color: #000;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-radius: 2px; /* Professional sharp edges */
+            transition: var(--transition);
+            border: 1px solid transparent;
+            white-space: nowrap;
+        }
+
+        .btn-core:hover {
+            background: transparent;
+            color: var(--gold);
+            border-color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: #fff;
+        }
+
+        /* --- HERO: CENTER ALIGNMENT --- */
+        .sec-hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 var(--gutter);
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            animation: fadeSlideUp 1.2s var(--transition) forwards;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.8rem, 8vw, 5rem);
+            line-height: 1.1;
+            margin-bottom: 32px;
+            font-weight: 500;
+        }
+
+        .hero-p {
+            color: var(--text-dim);
+            font-size: 1.2rem;
+            margin-bottom: 48px;
+            line-height: 1.8;
+        }
+
         .btn-group {
             display: flex;
             gap: 20px;
             justify-content: center;
             align-items: center;
-            flex-wrap: wrap;
         }
 
-        .primary-btn {
-            background: var(--gold);
-            color: #000;
-            padding: 18px 45px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: var(--transition);
+        /* --- CONTENT BLOCK: DUAL ASYMMETRY --- */
+        .sec-feature {
+            background: var(--bg-surface);
+            padding: 140px 0;
+            border-top: 1px solid var(--border);
         }
 
-        .secondary-btn {
-            background: transparent;
-            color: #fff;
-            padding: 18px 45px;
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: var(--transition);
+        .container {
+            max-width: var(--grid-max);
+            margin: 0 auto;
+            padding: 0 var(--gutter);
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr; /* Professional Asymmetry */
+            gap: 80px;
+            align-items: center;
         }
 
-        .primary-btn:hover { transform: scale(1.05); filter: brightness(1.1); }
-        .secondary-btn:hover { border-color: var(--gold); background: rgba(255,255,255,0.05); }
+        .feature-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 24px;
+        }
 
-        /* --- BACKGROUND MEDIA --- */
-        .media-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
+        .feature-image {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 1;
-            opacity: 0.4;
-            animation: scaleHero 2.5s var(--transition);
+            aspect-ratio: 4/5;
+            background: url('https://images.unsplash.com/photo-1493612276216-ee3925520721?auto=format&fit=crop&q=80&w=1000') center/cover;
+            border-radius: 4px;
+            filter: grayscale(100%) brightness(0.7);
+            transition: var(--transition);
         }
 
-        .overlay {
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle, transparent, var(--bg));
-            z-index: 2;
-        }
+        .feature-image:hover { filter: grayscale(0%) brightness(1); }
 
-        /* --- MOBILE FIXES --- */
-        @media (max-width: 768px) {
+        /* --- MOBILE ADAPTATIONS --- */
+        @media (max-width: 850px) {
+            .container { grid-template-columns: 1fr; gap: 40px; }
             .btn-group { flex-direction: column; width: 100%; }
-            .primary-btn, .secondary-btn { width: 100%; text-align: center; }
+            .btn-core { width: 100%; }
+            .sec-hero { padding-top: 100px; }
         }
     </style>
 </head>
@@ -190,47 +193,41 @@
     <nav>
         <div class="nav-inner">
             <a href="#" class="logo">THE SANCTUARY</a>
-            <a href="#" class="primary-btn" style="padding: 10px 25px;">Giving Portal</a>
+            <div style="display: flex; gap: 30px; align-items: center;">
+                <a href="#" style="color: var(--text-dim); text-decoration: none; font-size: 0.8rem; letter-spacing: 1px;" class="mobile-hide">MISSION</a>
+                <a href="#" class="btn-core" style="padding: 10px 24px;">GIVING</a>
+            </div>
         </div>
     </nav>
 
-    <section>
-        <img src="https://images.unsplash.com/photo-1438232992991-995b7058bbb3?auto=format&fit=crop&q=80&w=2000" class="media-bg" alt="Sanctuary">
-        <div class="overlay"></div>
-        <div class="content-wrap">
-            <span class="tag">Established in Excellence</span>
-            <h1>Architecture for the <br> <i>Modern Believer.</i></h1>
-            <p>Advancing global faith through cinematic experiences, secure community portals, and radical ministry transparency.</p>
-            <div class="btn-group">
-                <a href="#explore" class="primary-btn">Begin Experience</a>
-                <a href="#" class="secondary-btn">Watch Live Broadcast</a>
+    <main>
+        <section class="sec-hero">
+            <div class="hero-content">
+                <span style="color: var(--gold); letter-spacing: 5px; font-weight: 500; font-size: 0.75rem; margin-bottom: 20px; display: block;">V. 4.0 // INSTITUTIONAL</span>
+                <h1>Excellence is a <br> <i>Divine Mandate.</i></h1>
+                <p class="hero-p">A sophisticated digital ecosystem designed to bridge timeless theology with modern architectural precision.</p>
+                <div class="btn-group">
+                    <a href="#more" class="btn-core">Begin Experience</a>
+                    <a href="#" class="btn-core btn-outline">Watch Broadcast</a>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="explore" style="background: #0a0a0a;">
-        <div class="content-wrap">
-            <span class="tag">01 // The Archive</span>
-            <h2>Timeless Wisdom <br> at Your Fingertips.</h2>
-            <p>Our institutional repository features over 5,000 hours of liturgical research and cinematic sermons delivered in 8K resolution.</p>
-            <div class="btn-group">
-                <a href="#" class="primary-btn">Browse Library</a>
-                <a href="#" class="secondary-btn">Scripture AI Search</a>
+        <section id="more" class="sec-feature">
+            <div class="container">
+                <div class="feature-text">
+                    <span style="color: var(--gold); font-weight: 600;">01 // ARCHIVE</span>
+                    <h2 style="margin-top: 15px;">A Repository of <br> Pure Wisdom.</h2>
+                    <p style="color: var(--text-dim); margin-bottom: 30px;">Our data-vault houses 5,000+ hours of liturgical discourse, fully indexed and searchable via semantic AI technology.</p>
+                    <a href="#" class="btn-core btn-outline" style="border-color: var(--gold); color: var(--gold);">Enter Archive</a>
+                </div>
+                <div class="feature-image"></div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <section style="background: #000;">
-        <div class="content-wrap">
-            <span class="tag">02 // Global Outreach</span>
-            <h2>Beyond the <br> Physical Walls.</h2>
-            <p>Every contribution fuels a network of missions across 45 countries. Real-time data tracking ensures 100% financial transparency.</p>
-            <a href="#" class="primary-btn">View Impact Map</a>
-        </div>
-    </section>
-
-    <footer style="position: absolute; bottom: 40px; width: 100%; text-align: center; color: var(--text-dim); font-size: 0.7rem; letter-spacing: 2px;">
-        &copy; 2026 THE SANCTUARY INSTITUTIONAL. DESIGNED FOR THE DIVINE.
+    <footer style="padding: 80px 0; text-align: center; border-top: 1px solid var(--border);">
+        <p style="color: var(--text-dim); font-size: 0.7rem; letter-spacing: 2px;">&copy; 2026 THE SANCTUARY INSTITUTIONAL // LONDON • NEW YORK • DUBAI</p>
     </footer>
 
 </body>
