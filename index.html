@@ -1,25 +1,21 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Sanctuary | Digital Ministry</title>
+    <title>The Sanctuary | Elevated Ministry</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Syncopate:wght@700&display=swap" rel="stylesheet">
 
     <style>
-        /* --- 3Cr DESIGN SYSTEM & VARIABLES --- */
         :root {
-            --gold: #D4AF37;
-            --gold-light: #F1D592;
-            --bg: #050505;
-            --card-glass: rgba(255, 255, 255, 0.03);
-            --border-glass: rgba(255, 255, 255, 0.1);
-            --text: #FFFFFF;
-            --text-dim: #999999;
-            --animation-speed: 0.8s;
-            --curve: 40px;
+            /* Neon Sanctuary Palette */
+            --neon-gold: #FFD700;
+            --neon-blue: #00F2FF;
+            --deep-black: #020202;
+            --surface: #0A0A0A;
+            --text-glow: 0 0 15px rgba(255, 215, 0, 0.4);
+            --transition: cubic-bezier(0.23, 1, 0.32, 1);
         }
 
         * {
@@ -29,17 +25,10 @@
         }
 
         body {
-            background-color: var(--bg);
-            color: var(--text);
-            font-family: 'Inter', sans-serif;
+            background-color: var(--deep-black);
+            color: #fff;
+            font-family: 'Space Grotesk', sans-serif;
             overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        /* --- GLOBAL ANIMATIONS --- */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
         }
 
         /* --- NAVIGATION --- */
@@ -47,185 +36,186 @@
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 25px 5%;
+            padding: 30px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            background: linear-gradient(to bottom, rgba(5,5,5,0.9), transparent);
-            backdrop-filter: blur(15px);
-            border-bottom: 1px solid var(--border-glass);
+            mix-blend-mode: difference; /* High-end visual trick */
         }
 
         .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            letter-spacing: 2px;
-            color: var(--gold);
-            text-decoration: none;
-        }
-
-        .btn-donate {
-            background: var(--gold);
-            color: #000;
-            padding: 12px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            transition: 0.3s ease;
-        }
-
-        .btn-donate:hover {
-            box-shadow: 0 0 25px rgba(212, 175, 55, 0.5);
-            transform: translateY(-2px);
-        }
-
-        /* --- HERO SECTION --- */
-        .hero {
-            height: 100vh;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 0 20px;
-        }
-
-        .hero-video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1;
-            opacity: 0.4;
-        }
-
-        .hero-content h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 8vw, 6rem);
-            margin-bottom: 20px;
-            animation: fadeIn var(--animation-speed) ease forwards;
-        }
-
-        .hero-content p {
+            font-family: 'Syncopate', sans-serif;
             font-size: 1.2rem;
-            color: var(--text-dim);
-            max-width: 600px;
-            margin: 0 auto 40px;
-            animation: fadeIn var(--animation-speed) 0.2s ease forwards;
-            opacity: 0;
+            letter-spacing: 5px;
+            color: #fff;
+            text-decoration: none;
         }
 
-        /* --- BENTO GRID LAYOUT --- */
-        .bento-section {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 100px 5%;
-            display: grid;
-            grid-template-columns: 1fr; /* Mobile: Single column */
-            gap: 25px;
-        }
-
-        .bento-card {
-            background: var(--card-glass);
-            border: 1px solid var(--border-glass);
-            border-radius: var(--curve);
-            padding: 50px;
+        /* --- ASYMMETRICAL LAYOUT --- */
+        .split-section {
             display: flex;
             flex-direction: column;
-            justify-content: flex-end;
-            min-height: 400px;
-            transition: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-            animation: fadeIn var(--animation-speed) 0.4s ease forwards;
-            opacity: 0;
+            min-height: 100vh;
         }
 
-        .bento-card:hover {
-            border-color: var(--gold);
-            background: rgba(255, 255, 255, 0.06);
-            transform: scale(1.02);
+        .left-content {
+            padding: 120px 5% 60px;
+            z-index: 2;
         }
 
-        .bento-card h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            margin-bottom: 15px;
+        .left-content h1 {
+            font-family: 'Syncopate', sans-serif;
+            font-size: clamp(3rem, 10vw, 7rem);
+            line-height: 0.9;
+            text-transform: uppercase;
+            margin-bottom: 40px;
         }
 
-        .bento-card p {
-            color: var(--text-dim);
-            font-size: 1.1rem;
+        .highlight {
+            color: transparent;
+            -webkit-text-stroke: 1px var(--neon-gold);
+            text-shadow: var(--text-glow);
         }
 
-        /* --- PC OPTIMIZATIONS (1024px and above) --- */
+        /* --- STICKY RIGHT IMAGE (PC) --- */
+        .right-media {
+            width: 100%;
+            height: 60vh;
+            background: url('https://images.unsplash.com/photo-1515162305285-0293e4767cc2?auto=format&fit=crop&q=80&w=2000') center/cover;
+            border-radius: 0;
+            position: relative;
+        }
+
+        .right-media::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, var(--deep-black), transparent);
+        }
+
+        /* --- OVERLAPPING CONTENT CARDS --- */
+        .content-layer {
+            padding: 60px 5%;
+            display: flex;
+            flex-direction: column;
+            gap: 100px;
+            margin-top: -50px;
+        }
+
+        .feature-box {
+            background: var(--surface);
+            border-left: 4px solid var(--neon-gold);
+            padding: 60px;
+            max-width: 800px;
+            position: relative;
+            box-shadow: 40px 40px 80px rgba(0,0,0,0.5);
+        }
+
+        .feature-box h2 {
+            font-family: 'Syncopate', sans-serif;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .feature-box p {
+            color: #888;
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        .btn-neon {
+            margin-top: 30px;
+            display: inline-block;
+            padding: 15px 40px;
+            border: 1px solid var(--neon-gold);
+            color: var(--neon-gold);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: bold;
+            transition: 0.4s var(--transition);
+        }
+
+        .btn-neon:hover {
+            background: var(--neon-gold);
+            color: #000;
+            box-shadow: 0 0 30px var(--neon-gold);
+        }
+
+        /* --- PC MEDIA QUERIES --- */
         @media (min-width: 1024px) {
-            .bento-section {
-                grid-template-columns: repeat(12, 1fr);
-                grid-template-rows: repeat(2, 450px);
+            .split-section {
+                flex-direction: row;
+                height: 100vh;
+                overflow: hidden;
             }
-            
-            .span-8 { grid-column: span 8; }
-            .span-4 { grid-column: span 4; }
-            .span-12 { grid-column: span 12; }
-        }
 
-        footer {
-            padding: 80px 5%;
-            text-align: center;
-            border-top: 1px solid var(--border-glass);
-            color: var(--text-dim);
-            font-size: 0.9rem;
+            .left-content {
+                width: 50%;
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding-left: 8%;
+            }
+
+            .right-media {
+                width: 50%;
+                height: 100vh;
+            }
+
+            .content-layer {
+                padding-left: 8%;
+                margin-top: 100px;
+            }
+
+            .feature-box {
+                margin-left: auto; /* Push cards to different sides for asymmetry */
+            }
+
+            .feature-box:nth-child(even) {
+                margin-left: 0;
+            }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="#" class="logo">THE SANCTUARY</a>
-        <a href="#" class="btn-donate">Give Online</a>
+        <a href="#" class="logo">SANCTUARY.EXE</a>
+        <div style="display: flex; gap: 40px;">
+            <a href="#" style="color:white; text-decoration:none; font-size: 0.8rem; letter-spacing: 2px;">LIVE</a>
+            <a href="#" style="color:white; text-decoration:none; font-size: 0.8rem; letter-spacing: 2px;">GIVE</a>
+        </div>
     </nav>
 
     <main>
-        <section class="hero">
-            <video class="hero-video" autoplay muted loop playsinline>
-                <source src="https://assets.mixkit.co/videos/preview/mixkit-clouds-and-sun-rays-in-the-sky-621-large.mp4" type="video/mp4">
-            </video>
-            <div class="hero-content">
-                <span style="color: var(--gold); text-transform: uppercase; letter-spacing: 5px; font-weight: 600;">Since 1984</span>
-                <h1>Faith Renewed.</h1>
-                <p>Join a global collective dedicated to deep worship, spiritual community, and radical grace.</p>
-                <a href="#" class="btn-donate" style="padding: 18px 45px;">Watch Live</a>
+        <section class="split-section">
+            <div class="left-content">
+                <span style="color: var(--neon-blue); letter-spacing: 10px; font-weight: bold;">v4.0 // DIGITAL MINISTRIES</span>
+                <h1>Pure <br> <span class="highlight">Faith</span> <br> Global.</h1>
             </div>
+            <div class="right-media"></div>
         </section>
 
-        <section class="bento-section">
-            
-            <div class="bento-card span-8">
-                <div style="color: var(--gold); font-size: 0.8rem; margin-bottom: 10px;">[ SERMON ARCHIVE ]</div>
-                <h2>The Library</h2>
-                <p>Browse over 2,000 hours of teachings and cinematic worship sessions, optimized for all devices.</p>
+        <section class="content-layer">
+            <div class="feature-box">
+                <h2>The Neon Pulpit</h2>
+                <p>Experience sermons optimized for the 21st-century mind. High-fidelity audio, immersive visuals, and radical theology delivered straight to your interface.</p>
+                <a href="#" class="btn-neon">Enter Stream</a>
             </div>
 
-            <div class="bento-card span-4">
-                <h2>Groups</h2>
-                <p>Find a digital small group and grow with others in your time zone.</p>
+            <div class="feature-box">
+                <h2>Cyber Giving</h2>
+                <p>Your support fuels our server infrastructure, global relief missions, and youth tech-camps. Transparency is hard-coded into our mission.</p>
+                <a href="#" class="btn-neon">Initiate Transfer</a>
             </div>
-
-            <div class="bento-card span-12" style="background: linear-gradient(45deg, rgba(212,175,55,0.05), transparent);">
-                <h2>Our Vision 2030</h2>
-                <p>Discover how we are utilizing technology to provide food, shelter, and education to 100 communities globally. Join the movement of generosity.</p>
-                <a href="#" style="color: var(--gold); text-decoration: none; margin-top: 25px; font-weight: bold;">View Impact Map →</a>
-            </div>
-
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2026 The Sanctuary Digital. All Rights Reserved. Built for Eternity.</p>
+    <footer style="padding: 100px 8%; color: #444; font-size: 0.7rem; letter-spacing: 5px; text-transform: uppercase;">
+        Design Protocol 2026 // Built for the next 100 years.
     </footer>
 
 </body>
