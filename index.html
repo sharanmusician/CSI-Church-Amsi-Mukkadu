@@ -3,103 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE SANCTUARY | Global Institutional Presence</title>
+    <title>THE SANCTUARY | Global Presence</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;400;600&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
 
     <style>
         :root {
             --gold: #C5A059;
-            --bg: #050505;
-            --surface: #0E0E10;
-            --border: rgba(255, 255, 255, 0.08);
-            --text: #FFFFFF;
-            --text-dim: #888;
-            --p-global: 5%;
+            --bg: #030303;
+            --surface: #0A0A0B;
+            --border: rgba(255, 255, 255, 0.05);
+            --text: #F2F2F2;
+            --text-dim: #666;
+            --p-global: 6%; /* Tightened for high-end density */
+            --ease: cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: var(--bg); color: var(--text); font-family: 'Plus Jakarta Sans', sans-serif; -webkit-font-smoothing: antialiased; }
+        * { margin: 0; padding: 0; box-sizing: border-box; outline: none; }
+        html { scroll-behavior: smooth; }
+        body { background: var(--bg); color: var(--text); font-family: 'Plus Jakarta Sans', sans-serif; -webkit-font-smoothing: antialiased; font-size: 14px; }
         
-        /* --- DYNAMIC NAVIGATION --- */
+        /* --- NARROW PRECISION NAV --- */
         nav {
-            position: fixed; top: 0; width: 100%; height: 70px;
+            position: fixed; top: 0; width: 100%; height: 60px;
             display: flex; justify-content: center; z-index: 1000;
-            backdrop-filter: blur(30px); border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(40px); border-bottom: 1px solid var(--border);
         }
-        .nav-inner { width: 100%; max-width: 1600px; padding: 0 var(--p-global); display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; letter-spacing: 2px; color: var(--gold); text-decoration: none; font-weight: 600; }
+        .nav-inner { width: 100%; max-width: 1800px; padding: 0 var(--p-global); display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-family: 'Playfair Display', serif; font-size: 0.9rem; letter-spacing: 4px; color: #fff; text-decoration: none; font-weight: 500; text-transform: uppercase; }
 
-        /* --- GLOBAL BUTTONS (APPLE STYLE) --- */
+        /* --- BUTTONS: MINIMALIST APPLE STYLE --- */
         .btn-lux {
-            padding: 12px 30px; background: var(--gold); color: #000;
-            font-weight: 700; font-size: 0.75rem; letter-spacing: 1px;
-            text-transform: uppercase; text-decoration: none; border-radius: 30px; transition: 0.3s;
+            padding: 10px 24px; background: var(--gold); color: #000;
+            font-weight: 600; font-size: 0.65rem; letter-spacing: 1.5px;
+            text-transform: uppercase; text-decoration: none; border-radius: 2px; transition: var(--ease);
         }
-        .btn-lux:hover { transform: scale(1.05); background: #fff; }
+        .btn-lux:hover { background: #fff; box-shadow: 0 10px 20px rgba(0,0,0,0.4); }
 
-        /* --- 1. HEROIC MONOLITH (APPLE INSPIRED) --- */
+        /* --- 1. HERO: CINEMATIC REVEAL --- */
         .sec-hero {
-            height: 90vh; display: flex; align-items: center; justify-content: center; text-align: center;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.3), var(--bg)),
+            height: 90vh; display: flex; align-items: center; justify-content: flex-start;
+            background: linear-gradient(70deg, var(--bg) 20%, transparent),
                         url('https://images.unsplash.com/photo-1478147427282-58a87a120781?auto=format&fit=crop&q=80&w=2000') center/cover;
             padding: 0 var(--p-global);
         }
-        .sec-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(3.5rem, 10vw, 7.5rem); line-height: 0.9; margin-bottom: 20px; }
+        .sec-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 8vw, 5rem); line-height: 1; font-weight: 500; }
 
-        /* --- 2. AMAZON-STYLE STRIP (DENSE UTILITY) --- */
+        /* --- 2. AMAZON-TECH STRIP (MICRO-COLUMNS) --- */
         .sec-strip {
             display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
-            background: var(--border); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+            background: var(--border); margin-top: -1px;
         }
-        .strip-item { background: var(--bg); padding: 40px 20px; text-align: center; }
-        .strip-item h4 { color: var(--gold); font-size: 0.7rem; letter-spacing: 2px; margin-bottom: 10px; }
+        .strip-item { background: var(--bg); padding: 30px; border-right: 1px solid var(--border); }
+        .strip-item h4 { color: var(--gold); font-size: 0.6rem; letter-spacing: 3px; margin-bottom: 8px; text-transform: uppercase; }
+        .strip-item p { font-size: 0.85rem; color: var(--text-dim); }
 
-        /* --- 3. THE COLLISION (ASYMMETRIC) --- */
-        .sec-collision {
-            display: grid; grid-template-columns: repeat(12, 1fr); align-items: center;
-            padding: 80px var(--p-global); background: var(--surface);
+        /* --- 3. DENSE ASYMMETRIC STORY --- */
+        .sec-story {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 0; background: var(--surface);
+            border-bottom: 1px solid var(--border); align-items: center;
         }
-        .coll-img { 
-            grid-column: 1 / 8; height: 500px; 
-            background: url('https://images.unsplash.com/photo-1515162305285-0293e4767cc2?auto=format&fit=crop&q=80&w=1200') center/cover;
-            border-radius: 4px;
-        }
-        .coll-text { grid-column: 7 / 13; background: var(--bg); padding: 60px; border: 1px solid var(--border); margin-left: -40px; }
+        .story-img { height: 70vh; background: url('https://images.unsplash.com/photo-1515162305285-0293e4767cc2?auto=format&fit=crop&q=80&w=1200') center/cover; filter: grayscale(1); }
+        .story-text { padding: var(--p-global); }
+        .story-text h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-bottom: 20px; font-weight: 500; }
+        .story-text p { max-width: 400px; line-height: 1.8; color: var(--text-dim); font-size: 0.9rem; margin-bottom: 30px; }
 
-        /* --- 4. THE FILM GALLERY (MOTION) --- */
-        .sec-film { display: flex; height: 60vh; gap: 5px; padding: 5px; }
-        .film-cell { 
-            flex: 1; background-size: cover; background-position: center; 
-            filter: grayscale(1); transition: 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        /* --- 4. THE FILM-REEL (INTERACTIVE MOTION) --- */
+        .sec-reel { display: flex; height: 45vh; border-bottom: 1px solid var(--border); }
+        .reel-cell { 
+            flex: 1; background-size: cover; background-position: center; border-right: 1px solid var(--border);
+            filter: grayscale(1); transition: 0.9s var(--ease); position: relative;
         }
-        .film-cell:hover { flex: 3; filter: grayscale(0); }
+        .reel-cell:hover { flex: 2.5; filter: grayscale(0); }
+        .reel-label { position: absolute; bottom: 20px; left: 20px; font-size: 0.6rem; letter-spacing: 2px; opacity: 0; transition: 0.5s; }
+        .reel-cell:hover .reel-label { opacity: 1; }
 
-        /* --- 5. DATA GRID (AMAZON CARD STYLE) --- */
-        .sec-grid {
-            padding: 80px var(--p-global); display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;
-        }
+        /* --- 5. BENTO DASHBOARD (AMAZON CARD OPTIMIZED) --- */
+        .sec-grid { padding: 80px var(--p-global); display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px; }
         .grid-card { 
-            background: #111; padding: 40px; border: 1px solid var(--border); 
-            display: flex; flex-direction: column; justify-content: space-between; height: 350px;
+            background: var(--surface); padding: 30px; border: 1px solid var(--border); 
+            display: flex; flex-direction: column; justify-content: space-between; height: 320px; transition: 0.4s;
         }
-        .grid-card:hover { border-color: var(--gold); }
+        .grid-card:hover { border-color: var(--gold); background: #0F0F12; }
+        .grid-card span { font-size: 0.6rem; color: var(--gold); letter-spacing: 2px; }
+        .grid-card h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 500; margin-top: 15px; }
+        
+        /* Layout logic for Bento */
+        .card-lg { grid-column: span 8; }
+        .card-sm { grid-column: span 4; }
 
-        /* --- 6. FULL-WIDTH CINEMATIC CTA --- */
-        .sec-cta {
-            height: 60vh; display: flex; align-items: center; justify-content: center; text-align: center;
-            background: url('https://images.unsplash.com/photo-1451187530220-af82429b8979?auto=format&fit=crop&q=80&w=2000') center/cover fixed;
-            border-top: 1px solid var(--border);
-        }
-
-        /* --- MOBILE OPTIMIZATION --- */
+        /* --- MOBILE --- */
         @media (max-width: 900px) {
-            .sec-strip { grid-template-columns: repeat(2, 1fr); }
-            .sec-collision { display: block; }
-            .coll-text { margin-left: 0; margin-top: -30px; }
-            .sec-film { height: auto; flex-direction: column; }
-            .film-cell { height: 200px; }
+            .sec-strip, .sec-story, .sec-grid { display: flex; flex-direction: column; }
+            .story-img { height: 40vh; }
+            .grid-card { height: auto; margin-bottom: 10px; }
+            .sec-reel { height: 70vh; flex-direction: column; }
         }
     </style>
 </head>
@@ -107,68 +105,67 @@
 
     <nav>
         <div class="nav-inner">
-            <a href="#" class="logo">THE SANCTUARY</a>
-            <a href="#" class="btn-lux">Portal Access</a>
+            <a href="#" class="logo">The Sanctuary</a>
+            <a href="#" class="btn-lux">Access Portal</a>
         </div>
     </nav>
 
     <main>
         <section class="sec-hero">
             <div>
-                <span style="color: var(--gold); letter-spacing: 5px; font-weight: 800; font-size: 0.8rem;">V. 4.0 // INSTITUTIONAL</span>
+                <span style="color: var(--gold); letter-spacing: 6px; font-size: 0.65rem; text-transform: uppercase;">Institutional V 4.0</span>
                 <h1>Divine <br> <i>Architecture.</i></h1>
-                <a href="#" class="btn-lux" style="background: #fff; margin-top: 20px; display: inline-block;">Begin Journey</a>
             </div>
         </section>
 
         <section class="sec-strip">
-            <div class="strip-item"><h4>GLOBAL REACH</h4><p>45 Nations Connected</p></div>
-            <div class="strip-item"><h4>LIVE BROADCAST</h4><p>Every Sunday 09:00</p></div>
-            <div class="strip-item"><h4>DATA VAULT</h4><p>5,000+ Study Hours</p></div>
-            <div class="strip-item"><h4>IMPACT</h4><p>Real-Time Reporting</p></div>
+            <div class="strip-item"><h4>Global Presence</h4><p>45 Nations Connected</p></div>
+            <div class="strip-item"><h4>Liturgical Study</h4><p>5,000+ Hour Archive</p></div>
+            <div class="strip-item"><h4>Audit Report</h4><p>Real-Time Transparency</p></div>
+            <div class="strip-item" style="border-right: none;"><h4>Live Broadcast</h4><p>Sundays 09:00 GMT</p></div>
         </section>
 
-        <section class="sec-collision">
-            <div class="coll-img"></div>
-            <div class="coll-text">
-                <span style="color: var(--gold);">THE MANDATE</span>
-                <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; margin: 15px 0;">Institutional Stillness.</h2>
-                <p style="color: var(--text-dim); margin-bottom: 30px;">We engineering stillness into every pixel. A sanctuary built for the modern seeker, free from the noise of the digital age.</p>
-                <a href="#" style="color: var(--gold); text-decoration: none; font-weight: 800;">LEARN MORE →</a>
+        <section class="sec-story">
+            <div class="story-img"></div>
+            <div class="story-text">
+                <span style="color: var(--gold); font-size: 0.6rem; letter-spacing: 2px;">THE MANDATE</span>
+                <h2>Stillness in <br> <i>Every Pixel.</i></h2>
+                <p>We treat digital interface as a theological anchor. Every column and margin is engineered to reduce cognitive noise, allowing for pure reflection.</p>
+                <a href="#" style="color: var(--gold); text-decoration: none; font-size: 0.7rem; font-weight: 600; letter-spacing: 1px;">VIEW THE VISION →</a>
             </div>
         </section>
 
-        <section class="sec-film">
-            <div class="film-cell" style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800')"></div>
-            <div class="film-cell" style="background-image: url('https://images.unsplash.com/photo-1438232992991-995b7058bbb3?auto=format&fit=crop&w=800')"></div>
-            <div class="film-cell" style="background-image: url('https://images.unsplash.com/photo-1507671339927-142803362a4b?auto=format&fit=crop&w=800')"></div>
+        <section class="sec-reel">
+            <div class="reel-cell" style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800')"><span class="reel-label">ARCHIVE 01</span></div>
+            <div class="reel-cell" style="background-image: url('https://images.unsplash.com/photo-1438232992991-995b7058bbb3?auto=format&fit=crop&w=800')"><span class="reel-label">ARCHIVE 02</span></div>
+            <div class="reel-cell" style="background-image: url('https://images.unsplash.com/photo-1507671339927-142803362a4b?auto=format&fit=crop&w=800')"><span class="reel-label">ARCHIVE 03</span></div>
         </section>
 
         <section class="sec-grid">
-            <div class="grid-card">
-                <div><h3>ARCHIVE</h3><p style="font-size: 1.5rem; font-family: 'Playfair Display', serif;">500+ Theological Manuscripts fully digitized.</p></div>
-                <a href="#" style="color: var(--gold); text-decoration: none;">Explore Vault</a>
+            <div class="grid-card card-lg" style="background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1451187530220-af82429b8979?auto=format&fit=crop&w=1200'); background-size: cover;">
+                <span>01 // IMPACT</span>
+                <h3>A Global footprint <br> focused on clarity.</h3>
+                <a href="#" class="btn-lux" style="align-self: flex-start; background: transparent; color: white; border: 1px solid var(--border);">World Map</a>
             </div>
-            <div class="grid-card">
-                <div><h3>MISSION</h3><p style="font-size: 1.5rem; font-family: 'Playfair Display', serif;">A global footprint focused on humanitarian clarity.</p></div>
-                <a href="#" style="color: var(--gold); text-decoration: none;">View Map</a>
+            <div class="grid-card card-sm">
+                <span>02 // DATA</span>
+                <h3>Fiscal Year <br> 2026 Audit.</h3>
+                <a href="#" style="color: var(--gold); text-decoration: none; font-size: 0.7rem;">DOWNLOAD .PDF</a>
             </div>
-            <div class="grid-card">
-                <div><h3>TRANSPARENCY</h3><p style="font-size: 1.5rem; font-family: 'Playfair Display', serif;">Every resource tracked, audited, and published.</p></div>
-                <a href="#" style="color: var(--gold); text-decoration: none;">Download Audit</a>
+            <div class="grid-card card-sm">
+                <span>03 // NETWORK</span>
+                <h3>Digital Node <br> Infrastructure.</h3>
             </div>
-        </section>
-
-        <section class="sec-cta">
-            <div>
-                <h2 style="font-family: 'Playfair Display', serif; font-size: 4rem; margin-bottom: 30px;">Enter the Sanctuary.</h2>
-                <a href="#" class="btn-lux">Initiate Access</a>
+            <div class="grid-card card-lg">
+                <span>04 // ARCHIVE</span>
+                <h3>Access 5,000+ hours of discourse in 8K resolution.</h3>
+                <a href="#" class="btn-lux" style="align-self: flex-start;">Open Vault</a>
             </div>
         </section>
     </main>
 
     <footer style="padding: 60px var(--p-global); border-top: 1px solid var(--border); text-align: center;">
-        <p style="letter-spacing: 5px; font-size: 0.6rem; color: #444;">&copy; 2026 THE SANCTUARY GLOBAL INSTITUTION</p>
+        <p style="letter-spacing: 6px; font-size: 0.55rem; color: #444; text-transform: uppercase;">&copy; 2026 The Sanctuary Global Institution</p>
     </footer>
 
 </body>
