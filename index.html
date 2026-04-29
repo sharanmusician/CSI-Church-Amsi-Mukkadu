@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="Experience the divine through our digital sanctuary. Join our global community for live 8K worship, interactive sermons, and local ministry.">
+    
+    <link rel="stylesheet" href="https://use.typekit.net/custom-church-font.css">
+    
+    <link rel="preconnect" href="https://video.church-cdn.com">
+    <link rel="preconnect" href="https://api.church-backend.io">
+
+    <title>The Digital Cathedral | A Global Ministry Experience</title>
+
+    <style>
+        /* Critical Path CSS: This renders instantly 
+           while the 1.2Cr JavaScript bundle hydrates in the background.
+        */
+        :root {
+            --primary-gold: #D4AF37;
+            --sanctuary-dark: #0F0F0F;
+            --ethereal-white: #F9F9F9;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            background-color: var(--sanctuary-dark);
+            color: var(--ethereal-white);
+            font-family: 'Chronicle Display', serif;
+            overflow-x: hidden;
+        }
+
+        #hero-viewport {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .immersive-video-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.6; /* Cinematic overlay effect */
+        }
+
+        .cta-button {
+            padding: 1.5rem 3rem;
+            border: 1px solid var(--primary-gold);
+            background: transparent;
+            color: var(--primary-gold);
+            text-transform: uppercase;
+            letter-spacing: 0.2rem;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            font-weight: bold;
+        }
+
+        .cta-button:hover {
+            background: var(--primary-gold);
+            color: var(--sanctuary-dark);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+    <a href="#main-content" style="position:absolute; left:-10000px;">Skip to Sanctuary</a>
+
+    <header id="global-nav" style="position:fixed; width:100%; z-index:100; padding: 2rem;">
+        </header>
+
+    <main id="main-content">
+        <section id="hero-viewport">
+            <video class="immersive-video-bg" autoplay muted loop playsinline poster="/assets/hero-placeholder.jpg">
+                <source src="https://video.church-cdn.com/v1/hero-worship.mp4" type="video/mp4">
+            </video>
+
+            <div class="hero-content">
+                <h1 style="font-size: 4rem; margin-bottom: 1rem;">Grace Found Everywhere.</h1>
+                <p style="font-size: 1.2rem; margin-bottom: 2.5rem; opacity: 0.8;">Join our live global service starting in 14:02</p>
+                <button class="cta-button" onclick="enterSanctuary()">Enter the Sanctuary</button>
+            </div>
+        </section>
+
+        <div id="root"></div>
+    </main>
+
+    <script src="/js/architecture-bundle.v1.min.js" async></script>
+    
+    <script>
+        function enterSanctuary() {
+            console.log("Initializing Immersive Experience...");
+            // Custom transition logic to move from landing to the live feed
+        }
+    </script>
+</body>
+</html>
