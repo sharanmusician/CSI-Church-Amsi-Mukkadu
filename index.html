@@ -3,219 +3,247 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Sanctuary | Elevated Ministry</title>
+    <title>THE SANCTUARY | Global Digital Cathedral</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Syncopate:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;900&family=Syncopate:wght@700&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            /* Neon Sanctuary Palette */
+            /* Neon-Luxury Color System */
             --neon-gold: #FFD700;
             --neon-blue: #00F2FF;
-            --deep-black: #020202;
-            --surface: #0A0A0A;
-            --text-glow: 0 0 15px rgba(255, 215, 0, 0.4);
-            --transition: cubic-bezier(0.23, 1, 0.32, 1);
+            --bg-ultra: #030303;
+            --surface: rgba(255, 255, 255, 0.02);
+            --border: rgba(255, 255, 255, 0.1);
+            --glow: 0 0 20px rgba(0, 242, 255, 0.3);
+            --font-main: 'Outfit', sans-serif;
+            --font-header: 'Syncopate', sans-serif;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            cursor: crosshair; /* Professional Design Agency Touch */
         }
 
         body {
-            background-color: var(--deep-black);
-            color: #fff;
-            font-family: 'Space Grotesk', sans-serif;
+            background-color: var(--bg-ultra);
+            color: #FFFFFF;
+            font-family: var(--font-main);
             overflow-x: hidden;
+            line-height: 1.4;
         }
 
-        /* --- NAVIGATION --- */
+        /* --- GLOBAL NAVIGATION --- */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 30px 5%;
+            padding: 40px 6%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            mix-blend-mode: difference; /* High-end visual trick */
+            background: linear-gradient(to bottom, var(--bg-ultra), transparent);
+            backdrop-filter: blur(10px);
         }
 
         .logo {
-            font-family: 'Syncopate', sans-serif;
-            font-size: 1.2rem;
-            letter-spacing: 5px;
-            color: #fff;
+            font-family: var(--font-header);
+            font-size: 0.9rem;
+            letter-spacing: 8px;
             text-decoration: none;
+            color: #fff;
+            font-weight: 900;
         }
 
-        /* --- ASYMMETRICAL LAYOUT --- */
-        .split-section {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        .left-content {
-            padding: 120px 5% 60px;
-            z-index: 2;
-        }
-
-        .left-content h1 {
-            font-family: 'Syncopate', sans-serif;
-            font-size: clamp(3rem, 10vw, 7rem);
-            line-height: 0.9;
+        .nav-meta {
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            color: var(--neon-blue);
             text-transform: uppercase;
-            margin-bottom: 40px;
         }
 
-        .highlight {
-            color: transparent;
-            -webkit-text-stroke: 1px var(--neon-gold);
-            text-shadow: var(--text-glow);
-        }
-
-        /* --- STICKY RIGHT IMAGE (PC) --- */
-        .right-media {
-            width: 100%;
-            height: 60vh;
-            background: url('https://images.unsplash.com/photo-1515162305285-0293e4767cc2?auto=format&fit=crop&q=80&w=2000') center/cover;
-            border-radius: 0;
-            position: relative;
-        }
-
-        .right-media::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, var(--deep-black), transparent);
-        }
-
-        /* --- OVERLAPPING CONTENT CARDS --- */
-        .content-layer {
-            padding: 60px 5%;
+        /* --- CINEMATIC HERO --- */
+        .hero {
+            height: 100vh;
             display: flex;
             flex-direction: column;
-            gap: 100px;
-            margin-top: -50px;
-        }
-
-        .feature-box {
-            background: var(--surface);
-            border-left: 4px solid var(--neon-gold);
-            padding: 60px;
-            max-width: 800px;
+            justify-content: center;
+            padding: 0 8%;
             position: relative;
-            box-shadow: 40px 40px 80px rgba(0,0,0,0.5);
+            overflow: hidden;
         }
 
-        .feature-box h2 {
-            font-family: 'Syncopate', sans-serif;
-            margin-bottom: 20px;
-            font-size: 1.8rem;
+        .hero-bg-text {
+            position: absolute;
+            font-family: var(--font-header);
+            font-size: 25vw;
+            color: rgba(255, 255, 255, 0.02);
+            z-index: -1;
+            white-space: nowrap;
+            bottom: -5vw;
+            left: -5vw;
         }
 
-        .feature-box p {
-            color: #888;
-            font-size: 1.2rem;
-            line-height: 1.8;
+        .hero h1 {
+            font-family: var(--font-header);
+            font-size: clamp(3rem, 12vw, 9rem);
+            line-height: 0.85;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
         }
 
-        .btn-neon {
-            margin-top: 30px;
-            display: inline-block;
-            padding: 15px 40px;
+        .hero h1 span {
+            color: transparent;
+            -webkit-text-stroke: 1.5px var(--neon-gold);
+            filter: drop-shadow(var(--glow));
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 60px;
+            margin-top: 50px;
+            border-top: 1px solid var(--border);
+            padding-top: 30px;
+            max-width: fit-content;
+        }
+
+        .stat-item b { font-size: 1.5rem; color: var(--neon-blue); }
+        .stat-item p { font-size: 0.8rem; text-transform: uppercase; color: #555; }
+
+        /* --- PROFESSIONAL LAYOUT: THE LAYERED FLOW --- */
+        .content-section {
+            padding: 150px 8%;
+            display: flex;
+            flex-direction: column;
+            gap: 200px;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .row:nth-child(even) { flex-direction: row-reverse; }
+
+        .text-block {
+            flex: 1;
+            min-width: 350px;
+        }
+
+        .text-block h2 {
+            font-family: var(--font-header);
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            letter-spacing: -1px;
+        }
+
+        .visual-block {
+            flex: 1;
+            min-width: 350px;
+            height: 500px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            position: relative;
+            overflow: hidden;
+            transition: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .visual-block:hover {
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 50px rgba(0, 242, 255, 0.1);
+        }
+
+        /* --- PREMIUM CTA --- */
+        .cta-wrap {
+            text-align: center;
+            padding: 100px 0;
+            background: linear-gradient(to top, rgba(0, 242, 255, 0.05), transparent);
+        }
+
+        .btn-premium {
+            padding: 25px 60px;
+            background: transparent;
             border: 1px solid var(--neon-gold);
             color: var(--neon-gold);
+            font-family: var(--font-header);
+            font-size: 0.9rem;
             text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-weight: bold;
-            transition: 0.4s var(--transition);
+            letter-spacing: 5px;
+            transition: 0.4s;
+            position: relative;
         }
 
-        .btn-neon:hover {
+        .btn-premium:hover {
             background: var(--neon-gold);
             color: #000;
-            box-shadow: 0 0 30px var(--neon-gold);
+            box-shadow: 0 0 40px var(--neon-gold);
         }
 
-        /* --- PC MEDIA QUERIES --- */
-        @media (min-width: 1024px) {
-            .split-section {
-                flex-direction: row;
-                height: 100vh;
-                overflow: hidden;
-            }
-
-            .left-content {
-                width: 50%;
-                height: 100vh;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                padding-left: 8%;
-            }
-
-            .right-media {
-                width: 50%;
-                height: 100vh;
-            }
-
-            .content-layer {
-                padding-left: 8%;
-                margin-top: 100px;
-            }
-
-            .feature-box {
-                margin-left: auto; /* Push cards to different sides for asymmetry */
-            }
-
-            .feature-box:nth-child(even) {
-                margin-left: 0;
-            }
+        /* --- MOBILE OPTIMIZATION --- */
+        @media (max-width: 768px) {
+            nav { padding: 20px 6%; }
+            .hero-bg-text { display: none; }
+            .hero-stats { flex-direction: column; gap: 20px; }
+            .visual-block { height: 300px; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="#" class="logo">SANCTUARY.EXE</a>
-        <div style="display: flex; gap: 40px;">
-            <a href="#" style="color:white; text-decoration:none; font-size: 0.8rem; letter-spacing: 2px;">LIVE</a>
-            <a href="#" style="color:white; text-decoration:none; font-size: 0.8rem; letter-spacing: 2px;">GIVE</a>
-        </div>
+        <a href="#" class="logo">SANCTUARY.SYS</a>
+        <div class="nav-meta">Server Status: Online // v.4.02</div>
     </nav>
 
     <main>
-        <section class="split-section">
-            <div class="left-content">
-                <span style="color: var(--neon-blue); letter-spacing: 10px; font-weight: bold;">v4.0 // DIGITAL MINISTRIES</span>
-                <h1>Pure <br> <span class="highlight">Faith</span> <br> Global.</h1>
+        <section class="hero">
+            <div class="hero-bg-text">FAITH.EXE</div>
+            <span style="color: var(--neon-blue); font-weight: bold; margin-bottom: 20px; display: block;">[ INITIALIZING SPIRITUAL INTERFACE ]</span>
+            <h1>Divine <br> <span>Architecture</span> <br> Global.</h1>
+            
+            <div class="hero-stats">
+                <div class="stat-item"><b>145K+</b> <p>Active Nodes</p></div>
+                <div class="stat-item"><b>8K</b> <p>Stream Quality</p></div>
+                <div class="stat-item"><b>24/7</b> <p>Uptime Presence</p></div>
             </div>
-            <div class="right-media"></div>
         </section>
 
-        <section class="content-layer">
-            <div class="feature-box">
-                <h2>The Neon Pulpit</h2>
-                <p>Experience sermons optimized for the 21st-century mind. High-fidelity audio, immersive visuals, and radical theology delivered straight to your interface.</p>
-                <a href="#" class="btn-neon">Enter Stream</a>
+        <section class="content-section">
+            
+            <div class="row">
+                <div class="text-block">
+                    <span style="color: var(--neon-gold);">01 // THE VAULT</span>
+                    <h2>Infinite <br> Wisdom.</h2>
+                    <p style="color: #888; font-size: 1.1rem;">Access a decentralized repository of sermons, scriptures, and theological research optimized for the modern seeker.</p>
+                </div>
+                <div class="visual-block" style="background: url('https://images.unsplash.com/photo-1507692049790-de58290a4334?auto=format&fit=crop&q=80&w=1200') center/cover;"></div>
             </div>
 
-            <div class="feature-box">
-                <h2>Cyber Giving</h2>
-                <p>Your support fuels our server infrastructure, global relief missions, and youth tech-camps. Transparency is hard-coded into our mission.</p>
-                <a href="#" class="btn-neon">Initiate Transfer</a>
+            <div class="row">
+                <div class="text-block">
+                    <span style="color: var(--neon-gold);">02 // CONNECTIVITY</span>
+                    <h2>Encrypted <br> Community.</h2>
+                    <p style="color: #888; font-size: 1.1rem;">Join global prayer circles and small groups through a secure, high-bandwidth environment designed for deep fellowship.</p>
+                </div>
+                <div class="visual-block" style="background: url('https://images.unsplash.com/photo-1451187530220-af82429b8979?auto=format&fit=crop&q=80&w=1200') center/cover;"></div>
             </div>
+
+        </section>
+
+        <section class="cta-wrap">
+            <h2 style="font-family: var(--font-header); font-size: 3rem; margin-bottom: 50px;">Ready to Begin?</h2>
+            <a href="#" class="btn-premium">Initiate Connection</a>
         </section>
     </main>
 
-    <footer style="padding: 100px 8%; color: #444; font-size: 0.7rem; letter-spacing: 5px; text-transform: uppercase;">
-        Design Protocol 2026 // Built for the next 100 years.
+    <footer style="padding: 60px 8%; border-top: 1px solid var(--border); text-align: left; font-size: 0.6rem; letter-spacing: 4px; color: #444;">
+        TERMINAL // THE SANCTUARY DIGITAL ECOSYSTEM // 2026 
     </footer>
 
 </body>
