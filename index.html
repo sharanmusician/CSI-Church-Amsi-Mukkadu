@@ -84,14 +84,12 @@
             font-size: 14px; outline: none; margin-left: 12px;
         }
 
-        /* --- UPDATED NAVIGATION --- */
         .nav-wrapper {
             position: relative;
             border-top: 1px solid var(--border);
             overflow: hidden;
         }
 
-        /* Visual indicator that there is more to scroll */
         .nav-wrapper::after {
             content: '';
             position: absolute;
@@ -106,10 +104,10 @@
             gap: 20px; 
             padding: 15px var(--side-pad);
             overflow-x: auto; 
-            scrollbar-width: none; /* Firefox */
+            scrollbar-width: none;
             -webkit-overflow-scrolling: touch;
         }
-        .nav-prime::-webkit-scrollbar { display: none; } /* Chrome/Safari */
+        .nav-prime::-webkit-scrollbar { display: none; }
 
         .nav-prime a {
             color: #fff; 
@@ -119,15 +117,15 @@
             text-transform: uppercase; 
             font-weight: 700;
             opacity: 0.4; 
-            white-space: nowrap; /* Keeps text in one line */
-            flex-shrink: 0; /* Prevents text from squishing */
+            white-space: nowrap;
+            flex-shrink: 0;
         }
         .nav-prime a.active { opacity: 1; color: var(--gold); }
 
         /* --- 2. HERO SECTION --- */
         .sec-hero {
             height: 65vh; 
-            margin-top: 260px; /* Adjusted for taller nav */
+            margin-top: 260px; 
             padding: 60px var(--side-pad);
             display: flex; flex-direction: column; justify-content: flex-end;
             background: linear-gradient(to top, var(--bg) 10%, transparent 90%),
@@ -146,18 +144,33 @@
         .quad-card h3 { font-size: 12px; margin-bottom: 12px; font-weight: 700; }
         .quad-img { height: 100px; width: 100%; border-radius: 8px; background: #222 center/cover; }
 
-        /* --- 4. DEPARTMENTS --- */
-        .sec-peek { padding: 50px 0; }
+        /* --- 4. DEPARTMENTS (SORTED & SCROLLABLE) --- */
+        .sec-peek { padding: 50px 0; overflow: hidden; position: relative; }
         .peek-header { padding: 0 var(--side-pad) 20px; font-size: 13px; font-weight: 700; }
+        
+        /* Fade effect for department scroll */
+        .sec-peek::after {
+            content: '';
+            position: absolute;
+            top: 60px; right: 0;
+            width: 50px; height: 180px;
+            background: linear-gradient(to left, var(--bg), transparent);
+            pointer-events: none;
+            z-index: 2;
+        }
+
         .peek-scroll { 
             display: flex; 
-            gap: 10px; 
+            gap: 15px; 
             padding: 0 var(--side-pad);
-            justify-content: space-between; 
+            overflow-x: auto;
+            scrollbar-width: none;
+            -webkit-overflow-scrolling: touch;
         }
+        .peek-scroll::-webkit-scrollbar { display: none; }
+
         .peek-item { 
-            flex: 1; 
-            max-width: 30%; 
+            flex: 0 0 calc(33.333% - 10px); /* Exactly 3 fit on screen */
             text-align: center; 
         }
         .peek-circle { 
@@ -167,7 +180,14 @@
             margin-bottom: 10px; background: var(--surface) center/cover; overflow: hidden;
         }
         .peek-circle img { width: 100%; height: 100%; object-fit: cover; }
-        .peek-item p { font-size: 11px; font-weight: 600; opacity: 0.7; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .peek-item p { 
+            font-size: 10px; 
+            font-weight: 600; 
+            opacity: 0.7; 
+            white-space: nowrap; 
+            overflow: hidden; 
+            text-overflow: ellipsis; 
+        }
 
         /* --- 5. IMMERSIVE FEATURE --- */
         .sec-wide-feat {
@@ -198,7 +218,6 @@
         .strip-item h5 { font-size: 8px; letter-spacing: 1px; color: var(--gold); margin-bottom: 4px; text-transform: uppercase; }
         .strip-item p { font-size: 11px; font-weight: 700; white-space: nowrap; }
 
-        /* MOBILE FIXES */
         @media (max-width: 600px) {
             .sec-hero { margin-top: 280px; height: 50vh; }
             .brand-authority h2 { font-size: 1.3rem; }
@@ -230,8 +249,6 @@
                 <a href="#">Audit</a>
                 <a href="#">Gallery</a>
                 <a href="#">History</a>
-                <a href="#">Contact</a>
-                <a href="#">Members</a>
             </div>
         </div>
     </header>
@@ -265,16 +282,24 @@
             <div class="peek-header">DEPARTMENTS</div>
             <div class="peek-scroll">
                 <div class="peek-item">
+                    <div class="peek-circle"><img src="https://images.unsplash.com/photo-1544427928-c49cd049cc63?auto=format&fit=crop&q=80&w=300"></div>
+                    <p>Sunday School</p>
+                </div>
+                <div class="peek-item">
                     <div class="peek-circle"><img src="https://images.unsplash.com/photo-1478147427282-58a87a120781?auto=format&fit=crop&q=80&w=300"></div>
-                    <p>Youth Wing</p>
+                    <p>Endeavour</p>
                 </div>
                 <div class="peek-item">
                     <div class="peek-circle"><img src="https://images.unsplash.com/photo-1519491050282-cf00c82424b4?auto=format&fit=crop&q=80&w=300"></div>
                     <p>Choir</p>
                 </div>
                 <div class="peek-item">
-                    <div class="peek-circle"><img src="https://images.unsplash.com/photo-1544427928-c49cd049cc63?auto=format&fit=crop&q=80&w=300"></div>
-                    <p>School</p>
+                    <div class="peek-circle"><img src="https://images.unsplash.com/photo-1507671339927-142803362a4b?auto=format&fit=crop&q=80&w=300"></div>
+                    <p>Men's Fellowship</p>
+                </div>
+                <div class="peek-item">
+                    <div class="peek-circle"><img src="https://images.unsplash.com/photo-1515162305285-0293e4767cc2?auto=format&fit=crop&q=80&w=300"></div>
+                    <p>Women's Fellowship</p>
                 </div>
             </div>
         </section>
