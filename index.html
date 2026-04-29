@@ -28,143 +28,155 @@
             line-height: 1.5; 
         }
 
-        /* --- 1. PROFESSIONAL INSTITUTIONAL HEADER --- */
+        /* --- 1. SCROLLING HEADER (NOT FIXED) --- */
         header {
-            position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
-            background: rgba(3, 3, 3, 0.92); backdrop-filter: blur(25px);
-            border-bottom: 1px solid var(--border); padding-top: 20px;
+            position: absolute; /* Changed from fixed to absolute to scroll away */
+            top: 0; left: 0; width: 100%; z-index: 1000;
+            background: var(--bg);
+            border-bottom: 1px solid var(--border); 
+            padding-top: 30px;
         }
         
         .brand-authority {
             text-align: center;
-            margin-bottom: 20px;
-            padding: 0 10px;
+            margin-bottom: 25px;
+            padding: 0 15px;
         }
 
         .brand-authority h2 {
             font-family: 'Playfair Display', serif; 
-            font-size: 1.5rem; 
+            font-size: 1.6rem; 
             font-weight: 500;
             letter-spacing: 0.02em;
             color: #FFFFFF;
-            /* Metallic Gradient Effect */
             background: linear-gradient(to bottom, #FFFFFF 50%, var(--gold) 160%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 2px;
+            margin-bottom: 4px;
         }
 
         .brand-authority p { 
-            font-size: 10px; 
+            font-size: 11px; 
             color: var(--gold); 
-            letter-spacing: 0.45em; 
+            letter-spacing: 0.4em; 
             text-transform: uppercase; 
             font-weight: 700;
             opacity: 0.9;
-            margin-top: 6px;
         }
 
-        /* Anchor Line for Professionalism */
         .brand-authority::after {
             content: '';
             display: block;
-            width: 30px;
-            height: 1px;
+            width: 35px;
+            height: 1.5px;
             background: var(--gold);
-            margin: 12px auto 0;
-            opacity: 0.4;
+            margin: 15px auto 0;
+            opacity: 0.5;
         }
 
-        .search-prime { padding: 0 var(--side-pad) 15px; margin-top: 10px; }
+        .search-prime { padding: 0 var(--side-pad) 20px; margin-top: 10px; }
         .search-field {
-            background: #1A1A1C; border-radius: 12px; height: 50px;
+            background: #1A1A1C; border-radius: 12px; height: 52px;
             display: flex; align-items: center; padding: 0 20px; border: 1px solid var(--border);
         }
         .search-field input {
             background: transparent; border: none; color: #fff; width: 100%;
             font-size: 14px; outline: none; margin-left: 12px;
         }
-        .search-field input::placeholder { color: rgba(255,255,255,0.3); }
 
         .nav-prime {
-            display: flex; gap: 24px; padding: 0 var(--side-pad) 15px;
+            display: flex; gap: 24px; padding: 15px var(--side-pad);
             overflow-x: auto; scrollbar-width: none; border-top: 1px solid var(--border);
-            padding-top: 12px; justify-content: center;
+            justify-content: center;
         }
         .nav-prime::-webkit-scrollbar { display: none; }
         .nav-prime a {
             color: #fff; text-decoration: none; font-size: 10px;
             letter-spacing: 1.5px; text-transform: uppercase; font-weight: 700;
-            opacity: 0.4; white-space: nowrap; transition: 0.3s;
+            opacity: 0.4; white-space: nowrap;
         }
         .nav-prime a.active { opacity: 1; color: var(--gold); }
 
-        /* --- 2. AMAZON LAYOUT 1: THE HERO MONOLITH --- */
+        /* --- 2. HERO SECTION --- */
         .sec-hero {
-            height: 70vh; margin-top: 210px; padding: 60px var(--side-pad);
+            height: 65vh; 
+            margin-top: 240px; /* Offset for the absolute header */
+            padding: 60px var(--side-pad);
             display: flex; flex-direction: column; justify-content: flex-end;
-            background: linear-gradient(to top, var(--bg) 5%, transparent 80%),
+            background: linear-gradient(to top, var(--bg) 10%, transparent 90%),
                         url('https://images.unsplash.com/photo-1438232992991-995b7058bbb3?auto=format&fit=crop&q=80&w=2000') center/cover;
             border-radius: var(--radius-xl); margin-left: 2%; margin-right: 2%;
             border: 1px solid var(--border);
         }
-        .sec-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 8vw, 5.5rem); line-height: 0.95; font-weight: 400; }
+        .sec-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 8vw, 5rem); line-height: 0.95; }
 
-        /* --- 3. AMAZON LAYOUT 2: THE QUAD-TILE DISCOVERY --- */
+        /* --- 3. QUAD-TILE --- */
         .sec-quad {
             padding: 40px var(--side-pad); display: grid; grid-template-columns: 1fr 1fr; gap: 15px;
             background: var(--surface); margin-top: 25px;
         }
-        .quad-card { background: var(--card-inner); padding: 20px; border-radius: var(--radius-lg); border: 1px solid var(--border); }
-        .quad-card h3 { font-size: 13px; margin-bottom: 12px; font-weight: 700; letter-spacing: 0.5px; }
-        .quad-img { height: 110px; width: 100%; border-radius: 10px; background: #222 center/cover; }
-        .quad-link { color: var(--gold); font-size: 11px; text-decoration: none; display: block; margin-top: 12px; font-weight: 700; }
+        .quad-card { background: var(--card-inner); padding: 18px; border-radius: var(--radius-lg); border: 1px solid var(--border); }
+        .quad-card h3 { font-size: 12px; margin-bottom: 12px; font-weight: 700; }
+        .quad-img { height: 100px; width: 100%; border-radius: 8px; background: #222 center/cover; }
 
-        /* --- 4. AMAZON LAYOUT 3: THE CIRCULAR PEAK --- */
+        /* --- 4. DEPARTMENTS (3 CIRCLES FIT) --- */
         .sec-peek { padding: 50px 0; }
-        .peek-header { padding: 0 var(--side-pad) 20px; }
-        .peek-scroll { display: flex; gap: 20px; overflow-x: auto; padding: 0 var(--side-pad); scrollbar-width: none; }
-        .peek-item { min-width: 130px; text-align: center; }
+        .peek-header { padding: 0 var(--side-pad) 20px; font-size: 13px; font-weight: 700; }
+        .peek-scroll { 
+            display: flex; 
+            gap: 10px; 
+            padding: 0 var(--side-pad);
+            justify-content: space-between; /* Ensures even spread */
+        }
+        .peek-item { 
+            flex: 1; /* Makes items share space equally */
+            max-width: 30%; /* Forces at least 3 to fit precisely */
+            text-align: center; 
+        }
         .peek-circle { 
-            width: 130px; height: 130px; border-radius: 50%; border: 1px solid var(--border);
-            margin-bottom: 12px; background: var(--surface) center/cover; overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            width: 100%; 
+            aspect-ratio: 1 / 1; /* Keeps it a perfect circle */
+            border-radius: 50%; border: 1px solid var(--border);
+            margin-bottom: 10px; background: var(--surface) center/cover; overflow: hidden;
         }
         .peek-circle img { width: 100%; height: 100%; object-fit: cover; }
-        .peek-item p { font-size: 12px; font-weight: 600; opacity: 0.8; }
+        .peek-item p { font-size: 11px; font-weight: 600; opacity: 0.7; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
-        /* --- 5. AMAZON LAYOUT 4: THE WIDE FEATURE --- */
+        /* --- 5. IMMERSIVE FEATURE --- */
         .sec-wide-feat {
-            margin: 20px var(--side-pad); height: 420px; border-radius: var(--radius-xl);
-            background: linear-gradient(90deg, rgba(0,0,0,0.95) 30%, transparent),
+            margin: 20px var(--side-pad); padding: 40px; border-radius: var(--radius-xl);
+            background: linear-gradient(90deg, rgba(0,0,0,0.9) 40%, transparent),
                         url('https://images.unsplash.com/photo-1515162305285-0293e4767cc2?auto=format&fit=crop&q=80&w=1200') center/cover;
-            padding: 50px; display: flex; align-items: center; border: 1px solid var(--border);
+            border: 1px solid var(--border);
         }
-        .wide-content { max-width: 420px; }
-        .wide-content h2 { font-family: 'Playfair Display', serif; font-size: 2.8rem; line-height: 1.1; margin-bottom: 20px; }
-        .btn-prime {
-            background: #fff; color: #000; padding: 14px 28px; border-radius: 8px;
-            text-decoration: none; font-size: 12px; font-weight: 700; display: inline-block;
-        }
+        .wide-content h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-bottom: 15px; }
 
-        /* --- 6. DATA STRIP FOOTER --- */
+        /* --- 6. DATA STRIP (FITS SCREEN) --- */
         .sec-strip {
-            display: flex; background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
-            margin-top: 50px;
+            display: flex; 
+            flex-wrap: nowrap; /* Forces them to stay in one line */
+            background: var(--surface); 
+            border-top: 1px solid var(--border); 
+            border-bottom: 1px solid var(--border);
+            margin-top: 40px;
         }
-        .strip-item { flex: 1; padding: 30px; text-align: center; border-right: 1px solid var(--border); }
-        .strip-item h5 { font-size: 9px; letter-spacing: 2.5px; color: var(--gold); margin-bottom: 6px; text-transform: uppercase; }
-        .strip-item p { font-size: 13px; font-weight: 700; }
+        .strip-item { 
+            flex: 1; 
+            padding: 20px 10px; 
+            text-align: center; 
+            border-right: 1px solid var(--border);
+            min-width: 0; /* Allows shrinking to fit */
+        }
+        .strip-item:last-child { border-right: none; }
+        .strip-item h5 { font-size: 8px; letter-spacing: 1px; color: var(--gold); margin-bottom: 4px; text-transform: uppercase; }
+        .strip-item p { font-size: 11px; font-weight: 700; white-space: nowrap; }
 
-        /* MOBILE OVERRIDES */
-        @media (max-width: 900px) {
+        /* MOBILE FIXES */
+        @media (max-width: 600px) {
             .nav-prime { justify-content: flex-start; }
-            .sec-hero { margin-top: 220px; height: 50vh; }
-            .sec-wide-feat { height: auto; padding: 45px 25px; }
-            .sec-wide-feat h2 { font-size: 2rem; }
-            .brand-authority h2 { font-size: 1.1rem; }
-            .sec-strip { overflow-x: auto; }
-            .strip-item { min-width: 130px; }
+            .sec-hero { margin-top: 260px; height: 50vh; }
+            .brand-authority h2 { font-size: 1.3rem; }
+            .sec-wide-feat h2 { font-size: 1.8rem; }
         }
     </style>
 </head>
@@ -179,14 +191,13 @@
         <div class="search-prime">
             <div class="search-field">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                <input type="text" placeholder="Search sermons, events, history...">
+                <input type="text" placeholder="Search sermons, events...">
             </div>
         </div>
 
         <div class="nav-prime">
             <a href="#" class="active">Home</a>
             <a href="#">Liturgy</a>
-            <a href="#">Announcements</a>
             <a href="#">The Vault</a>
             <a href="#">Impact</a>
             <a href="#">Audit</a>
@@ -195,37 +206,31 @@
 
     <main>
         <section class="sec-hero">
-            <span style="font-size: 11px; letter-spacing: 5px; color: var(--gold); font-weight: 700; margin-bottom: 10px;">WELCOME</span>
+            <span style="font-size: 10px; letter-spacing: 4px; color: var(--gold); font-weight: 700;">WELCOME</span>
             <h1>Divine <br> <i>Architecture.</i></h1>
         </section>
 
         <section class="sec-quad">
             <div class="quad-card">
-                <h3>Sunday Liturgy</h3>
+                <h3>Liturgy</h3>
                 <div class="quad-img" style="background-image: url('https://images.unsplash.com/photo-1544427928-c49cd049cc63?auto=format&fit=crop&q=80&w=400');"></div>
-                <a href="#" class="quad-link">Explore Service →</a>
             </div>
             <div class="quad-card">
                 <h3>Giving</h3>
                 <div class="quad-img" style="background-image: url('https://images.unsplash.com/photo-1507671339927-142803362a4b?auto=format&fit=crop&q=80&w=400');"></div>
-                <a href="#" class="quad-link">Support Mission →</a>
             </div>
             <div class="quad-card">
-                <h3>The Archive</h3>
+                <h3>Archive</h3>
                 <div class="quad-img" style="background-image: url('https://images.unsplash.com/photo-1519491050282-cf00c82424b4?auto=format&fit=crop&q=80&w=400');"></div>
-                <a href="#" class="quad-link">Read History →</a>
             </div>
             <div class="quad-card">
-                <h3>Parish Life</h3>
+                <h3>Gallery</h3>
                 <div class="quad-img" style="background-image: url('https://images.unsplash.com/photo-1515162305285-0293e4767cc2?auto=format&fit=crop&q=80&w=400');"></div>
-                <a href="#" class="quad-link">View Gallery →</a>
             </div>
         </section>
 
         <section class="sec-peek">
-            <div class="peek-header">
-                <h4 style="font-size: 13px; font-weight: 700; letter-spacing: 1px; color: #fff;">DEPARTMENTS</h4>
-            </div>
+            <div class="peek-header">DEPARTMENTS</div>
             <div class="peek-scroll">
                 <div class="peek-item">
                     <div class="peek-circle"><img src="https://images.unsplash.com/photo-1478147427282-58a87a120781?auto=format&fit=crop&q=80&w=300"></div>
@@ -233,40 +238,33 @@
                 </div>
                 <div class="peek-item">
                     <div class="peek-circle"><img src="https://images.unsplash.com/photo-1519491050282-cf00c82424b4?auto=format&fit=crop&q=80&w=300"></div>
-                    <p>Church Choir</p>
+                    <p>Choir</p>
                 </div>
                 <div class="peek-item">
                     <div class="peek-circle"><img src="https://images.unsplash.com/photo-1544427928-c49cd049cc63?auto=format&fit=crop&q=80&w=300"></div>
-                    <p>Sunday School</p>
-                </div>
-                <div class="peek-item">
-                    <div class="peek-circle"><img src="https://images.unsplash.com/photo-1507671339927-142803362a4b?auto=format&fit=crop&q=80&w=300"></div>
-                    <p>Fellowship</p>
+                    <p>School</p>
                 </div>
             </div>
         </section>
 
         <section class="sec-wide-feat">
             <div class="wide-content">
-                <p style="color: var(--gold); font-size: 11px; font-weight: 700; letter-spacing: 3px; margin-bottom: 10px;">INSTITUTIONAL AUDIT</p>
-                <h2>Fiscal Year 2026 Transparency.</h2>
-                <p style="font-size: 14px; opacity: 0.6; margin-bottom: 25px;">Access our complete resource audits and social impact metrics for the current pastorate year.</p>
-                <a href="#" class="btn-prime">DOWNLOAD AUDIT (PDF)</a>
+                <p style="color: var(--gold); font-size: 10px; font-weight: 700; letter-spacing: 2px;">AUDIT</p>
+                <h2>2026 Transparency.</h2>
+                <a href="#" style="color:#fff; font-size:12px; font-weight:700; text-decoration:none; border-bottom:1px solid var(--gold)">Download Report</a>
             </div>
         </section>
 
         <section class="sec-strip">
-            <div class="strip-item"><h5>PRESENCE</h5><p>Global Nodes</p></div>
-            <div class="strip-item"><h5>ARCHIVE</h5><p>5,000+ Hours</p></div>
-            <div class="strip-item"><h5>LIVE</h5><p>09:00 GMT</p></div>
-            <div class="strip-item" style="border: none;"><h5>STATUS</h5><p>Verified</p></div>
+            <div class="strip-item"><h5>PRESENCE</h5><p>Global</p></div>
+            <div class="strip-item"><h5>ARCHIVE</h5><p>5k+ Hrs</p></div>
+            <div class="strip-item"><h5>LIVE</h5><p>09:00 AM</p></div>
+            <div class="strip-item"><h5>STATUS</h5><p>Active</p></div>
         </section>
     </main>
 
-    <footer style="padding: 60px var(--side-pad); text-align: center; border-top: 1px solid var(--border); margin-top: 50px;">
-        <p style="letter-spacing: 6px; font-size: 9px; opacity: 0.4; text-transform: uppercase;">
-            © 2026 AMSI MUKKADU PASTORATE CHURCH • KANNYAKUMARI DIOCESE
-        </p>
+    <footer style="padding: 60px 0; text-align: center; opacity: 0.4; font-size: 9px; letter-spacing: 4px;">
+        © 2026 AMSI MUKKADU PASTORATE CHURCH
     </footer>
 
 </body>
