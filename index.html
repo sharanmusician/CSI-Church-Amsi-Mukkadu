@@ -3,247 +3,245 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE SANCTUARY | Global Digital Cathedral</title>
+    <title>THE SANCTUARY | Institutional Ministry</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;900&family=Syncopate:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            /* Neon-Luxury Color System */
-            --neon-gold: #FFD700;
-            --neon-blue: #00F2FF;
-            --bg-ultra: #030303;
-            --surface: rgba(255, 255, 255, 0.02);
-            --border: rgba(255, 255, 255, 0.1);
-            --glow: 0 0 20px rgba(0, 242, 255, 0.3);
-            --font-main: 'Outfit', sans-serif;
-            --font-header: 'Syncopate', sans-serif;
+            /* Corporate Luxury Palette */
+            --slate-900: #0A0A0B;
+            --slate-800: #141416;
+            --gold-accent: #C5A059; /* Muted Champagne Gold */
+            --text-main: #FFFFFF;
+            --text-dim: #8E8E93;
+            --border: rgba(255, 255, 255, 0.08);
+            --container-max: 1200px;
+            --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            cursor: crosshair; /* Professional Design Agency Touch */
         }
 
         body {
-            background-color: var(--bg-ultra);
-            color: #FFFFFF;
-            font-family: var(--font-main);
+            background-color: var(--slate-900);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
             overflow-x: hidden;
-            line-height: 1.4;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* --- GLOBAL NAVIGATION --- */
+        /* --- NAVIGATION: Institutional Style --- */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 40px 6%;
+            height: 90px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+            background: rgba(10, 10, 11, 0.8);
+            backdrop-filter: blur(20px);
+        }
+
+        .nav-container {
+            width: 100%;
+            max-width: var(--container-max);
+            padding: 0 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            z-index: 1000;
-            background: linear-gradient(to bottom, var(--bg-ultra), transparent);
-            backdrop-filter: blur(10px);
         }
 
         .logo {
-            font-family: var(--font-header);
-            font-size: 0.9rem;
-            letter-spacing: 8px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            font-weight: 600;
             text-decoration: none;
-            color: #fff;
-            font-weight: 900;
+            color: var(--text-main);
         }
 
-        .nav-meta {
-            font-size: 0.7rem;
-            letter-spacing: 3px;
-            color: var(--neon-blue);
-            text-transform: uppercase;
+        .nav-cta {
+            background: var(--gold-accent);
+            color: #000;
+            padding: 10px 24px;
+            border-radius: 4px;
+            font-weight: 500;
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: var(--transition);
         }
 
-        /* --- CINEMATIC HERO --- */
+        .nav-cta:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        /* --- HERO: High-End Minimalist --- */
         .hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
-            flex-direction: column;
+            align-items: center;
             justify-content: center;
-            padding: 0 8%;
+            padding: 120px 40px 60px;
+            text-align: center;
             position: relative;
-            overflow: hidden;
         }
 
-        .hero-bg-text {
-            position: absolute;
-            font-family: var(--font-header);
-            font-size: 25vw;
-            color: rgba(255, 255, 255, 0.02);
-            z-index: -1;
-            white-space: nowrap;
-            bottom: -5vw;
-            left: -5vw;
+        .hero-inner {
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .tagline {
+            color: var(--gold-accent);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            display: block;
         }
 
         .hero h1 {
-            font-family: var(--font-header);
-            font-size: clamp(3rem, 12vw, 9rem);
-            line-height: 0.85;
-            text-transform: uppercase;
-            margin-bottom: 2rem;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            line-height: 1.1;
+            font-weight: 600;
+            margin-bottom: 32px;
+            letter-spacing: -0.02em;
         }
 
-        .hero h1 span {
-            color: transparent;
-            -webkit-text-stroke: 1.5px var(--neon-gold);
-            filter: drop-shadow(var(--glow));
+        .hero p {
+            color: var(--text-dim);
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            max-width: 600px;
+            margin: 0 auto 48px;
         }
 
-        .hero-stats {
-            display: flex;
-            gap: 60px;
-            margin-top: 50px;
-            border-top: 1px solid var(--border);
-            padding-top: 30px;
-            max-width: fit-content;
+        /* --- CONTENT SECTION: Grid Precision --- */
+        .section-grid {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 100px 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
         }
 
-        .stat-item b { font-size: 1.5rem; color: var(--neon-blue); }
-        .stat-item p { font-size: 0.8rem; text-transform: uppercase; color: #555; }
-
-        /* --- PROFESSIONAL LAYOUT: THE LAYERED FLOW --- */
-        .content-section {
-            padding: 150px 8%;
-            display: flex;
-            flex-direction: column;
-            gap: 200px;
-        }
-
-        .row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 50px;
-            align-items: center;
-        }
-
-        .row:nth-child(even) { flex-direction: row-reverse; }
-
-        .text-block {
-            flex: 1;
-            min-width: 350px;
-        }
-
-        .text-block h2 {
-            font-family: var(--font-header);
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-            letter-spacing: -1px;
-        }
-
-        .visual-block {
-            flex: 1;
-            min-width: 350px;
-            height: 500px;
-            background: var(--surface);
+        .corporate-card {
+            background: var(--slate-800);
             border: 1px solid var(--border);
-            border-radius: 4px;
-            position: relative;
-            overflow: hidden;
-            transition: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            padding: 48px;
+            border-radius: 8px;
+            transition: var(--transition);
         }
 
-        .visual-block:hover {
-            border-color: var(--neon-blue);
-            box-shadow: 0 0 50px rgba(0, 242, 255, 0.1);
+        .corporate-card:hover {
+            border-color: var(--gold-accent);
+            background: #1a1a1c;
         }
 
-        /* --- PREMIUM CTA --- */
-        .cta-wrap {
-            text-align: center;
-            padding: 100px 0;
-            background: linear-gradient(to top, rgba(0, 242, 255, 0.05), transparent);
+        .corporate-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            margin-bottom: 20px;
         }
 
-        .btn-premium {
-            padding: 25px 60px;
-            background: transparent;
-            border: 1px solid var(--neon-gold);
-            color: var(--neon-gold);
-            font-family: var(--font-header);
-            font-size: 0.9rem;
+        .corporate-card p {
+            color: var(--text-dim);
+            font-size: 1rem;
+            margin-bottom: 32px;
+        }
+
+        .text-link {
+            color: var(--gold-accent);
             text-decoration: none;
-            letter-spacing: 5px;
-            transition: 0.4s;
-            position: relative;
+            font-weight: 500;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        .btn-premium:hover {
-            background: var(--neon-gold);
-            color: #000;
-            box-shadow: 0 0 40px var(--neon-gold);
+        .text-link:hover {
+            gap: 12px;
         }
 
-        /* --- MOBILE OPTIMIZATION --- */
+        /* --- FOOTER --- */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 60px 40px;
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        /* --- RESPONSIVENESS FIXES --- */
         @media (max-width: 768px) {
-            nav { padding: 20px 6%; }
-            .hero-bg-text { display: none; }
-            .hero-stats { flex-direction: column; gap: 20px; }
-            .visual-block { height: 300px; }
+            .nav-container { padding: 0 20px; }
+            .hero { padding: 100px 20px 40px; }
+            .section-grid { padding: 60px 20px; }
+            .corporate-card { padding: 32px; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="#" class="logo">SANCTUARY.SYS</a>
-        <div class="nav-meta">Server Status: Online // v.4.02</div>
+        <div class="nav-container">
+            <a href="#" class="logo">THE SANCTUARY</a>
+            <div style="display: flex; gap: 32px; align-items: center;">
+                <a href="#" style="color: var(--text-dim); text-decoration: none; font-size: 0.85rem;" class="mobile-hide">Our Mission</a>
+                <a href="#" class="nav-cta">Contribute</a>
+            </div>
+        </div>
     </nav>
 
     <main>
         <section class="hero">
-            <div class="hero-bg-text">FAITH.EXE</div>
-            <span style="color: var(--neon-blue); font-weight: bold; margin-bottom: 20px; display: block;">[ INITIALIZING SPIRITUAL INTERFACE ]</span>
-            <h1>Divine <br> <span>Architecture</span> <br> Global.</h1>
-            
-            <div class="hero-stats">
-                <div class="stat-item"><b>145K+</b> <p>Active Nodes</p></div>
-                <div class="stat-item"><b>8K</b> <p>Stream Quality</p></div>
-                <div class="stat-item"><b>24/7</b> <p>Uptime Presence</p></div>
+            <div class="hero-inner">
+                <span class="tagline">Global Institutional Ministry</span>
+                <h1>Architecture for the <br> <i>Modern Believer.</i></h1>
+                <p>Advancing faith through cinematic digital experiences, global small-group connectivity, and radical transparency.</p>
+                <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+                    <a href="#" class="nav-cta" style="padding: 16px 40px;">Watch Stream</a>
+                    <a href="#" style="color: white; text-decoration: none; padding: 16px 40px; border: 1px solid var(--border); border-radius: 4px; font-size: 0.85rem;">Read Charter</a>
+                </div>
             </div>
         </section>
 
-        <section class="content-section">
-            
-            <div class="row">
-                <div class="text-block">
-                    <span style="color: var(--neon-gold);">01 // THE VAULT</span>
-                    <h2>Infinite <br> Wisdom.</h2>
-                    <p style="color: #888; font-size: 1.1rem;">Access a decentralized repository of sermons, scriptures, and theological research optimized for the modern seeker.</p>
-                </div>
-                <div class="visual-block" style="background: url('https://images.unsplash.com/photo-1507692049790-de58290a4334?auto=format&fit=crop&q=80&w=1200') center/cover;"></div>
+        <section class="section-grid">
+            <div class="corporate-card">
+                <h3>The Archive</h3>
+                <p>A sophisticated repository of theological discourse and recorded liturgy, optimized for cross-platform study.</p>
+                <a href="#" class="text-link">Explore Archive →</a>
             </div>
 
-            <div class="row">
-                <div class="text-block">
-                    <span style="color: var(--neon-gold);">02 // CONNECTIVITY</span>
-                    <h2>Encrypted <br> Community.</h2>
-                    <p style="color: #888; font-size: 1.1rem;">Join global prayer circles and small groups through a secure, high-bandwidth environment designed for deep fellowship.</p>
-                </div>
-                <div class="visual-block" style="background: url('https://images.unsplash.com/photo-1451187530220-af82429b8979?auto=format&fit=crop&q=80&w=1200') center/cover;"></div>
+            <div class="corporate-card">
+                <h3>Global Impact</h3>
+                <p>View the real-time distribution of resources across our international mission partners and humanitarian projects.</p>
+                <a href="#" class="text-link">View Impact Report →</a>
             </div>
 
-        </section>
-
-        <section class="cta-wrap">
-            <h2 style="font-family: var(--font-header); font-size: 3rem; margin-bottom: 50px;">Ready to Begin?</h2>
-            <a href="#" class="btn-premium">Initiate Connection</a>
+            <div class="corporate-card">
+                <h3>Community</h3>
+                <p>Join a curated network of small groups designed to foster intellectual and spiritual growth within your region.</p>
+                <a href="#" class="text-link">Join a Group →</a>
+            </div>
         </section>
     </main>
 
-    <footer style="padding: 60px 8%; border-top: 1px solid var(--border); text-align: left; font-size: 0.6rem; letter-spacing: 4px; color: #444;">
-        TERMINAL // THE SANCTUARY DIGITAL ECOSYSTEM // 2026 
+    <footer>
+        <p>&copy; 2026 THE SANCTUARY INSTITUTIONAL. ALL RIGHTS RESERVED.</p>
     </footer>
 
 </body>
