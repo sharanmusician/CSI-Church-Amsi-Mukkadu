@@ -3,189 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE SANCTUARY | Institutional Global</title>
+    <title>THE SANCTUARY | Global Presence</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            /* 3Cr Luxury Tones */
-            --obsidian: #0D0D0E;
-            --charcoal: #151517;
-            --champagne: #D4AF37;
-            --champagne-dim: rgba(212, 175, 55, 0.6);
-            --text-silver: #E0E0E0;
-            --text-dim: #808080;
+            /* Muted Luxury Palette */
+            --bg-deep: #050505;
+            --surface-accent: #0C0C0E;
+            --gold: #C5A059;
+            --champagne: rgba(197, 160, 89, 0.6);
+            --text-pure: #FFFFFF;
+            --text-dim: rgba(255, 255, 255, 0.4);
             --border: rgba(255, 255, 255, 0.05);
-            --ease: cubic-bezier(0.25, 1, 0.5, 1);
+            --font-main: 'Outfit', sans-serif;
+            --font-display: 'Playfair Display', serif;
+            --transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            background-color: var(--obsidian);
-            color: var(--text-silver);
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-deep);
+            color: var(--text-pure);
+            font-family: var(--font-main);
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
 
-        /* --- CONTINUITY ANIMATIONS --- */
-        @keyframes lineGrow {
-            from { height: 0; }
-            to { height: 120px; }
-        }
-
-        @keyframes contentReveal {
-            from { opacity: 0; transform: translateY(20px); }
+        /* --- CINEMATIC ANIMATIONS --- */
+        @keyframes revealUp {
+            from { opacity: 0; transform: translateY(50px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* --- NAVIGATION --- */
+        @keyframes maskOpen {
+            from { clip-path: inset(0 0 100% 0); }
+            to { clip-path: inset(0 0 0 0); }
+        }
+
+        /* --- GLOBAL NAVIGATION --- */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            height: 80px;
+            height: 90px;
             display: flex;
             justify-content: center;
             z-index: 1000;
-            background: rgba(13, 13, 14, 0.8);
-            backdrop-filter: blur(20px);
+            backdrop-filter: blur(25px);
             border-bottom: 1px solid var(--border);
         }
 
         .nav-inner {
-            width: 92%;
-            max-width: 1400px;
+            width: 90%;
+            max-width: 1300px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            font-family: 'Playfair Display', serif;
+            font-family: var(--font-display);
             font-size: 1.1rem;
+            font-weight: 500;
             letter-spacing: 2px;
-            color: var(--champagne);
+            color: #fff;
             text-decoration: none;
         }
 
-        /* --- INTEGRATED HERO --- */
-        .hero {
-            height: 90vh;
+        /* --- MASTER LAYOUT FRAME --- */
+        .cinematic-frame {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 0 10%;
+        }
+
+        .frame-header {
+            max-width: 700px;
+            text-align: center;
+            z-index: 10;
+        }
+
+        .frame-header h1 {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 10vw, 6.5rem);
+            line-height: 0.9;
+            margin-bottom: 25px;
+        }
+
+        .frame-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(1);
+            opacity: 0.3;
+            z-index: 1;
+        }
+
+        /* --- ASYMMETRICAL SPLIT FRAME --- */
+        .frame-split {
+            height: 100vh;
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .split-image {
+            background: url('https://images.unsplash.com/photo-1515162305285-0293e4767cc2?auto=format&fit=crop&q=80&w=1000') center/cover;
+            border-right: 1px solid var(--border);
+        }
+
+        .split-text {
             display: flex;
             flex-direction: column;
-            justify-content: flex-end;
-            padding: 0 8% 100px;
-            position: relative;
+            justify-content: center;
+            padding: 10%;
         }
 
-        .hero-meta {
-            color: var(--champagne);
-            font-size: 0.75rem;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            margin-bottom: 15px;
-            animation: contentReveal 1s var(--ease);
+        /* --- FULL GRID RESOURCE FRAME --- */
+        .frame-grid {
+            padding: 150px 10%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(3rem, 12vw, 7.5rem);
-            line-height: 0.9;
-            margin-bottom: 30px;
-            animation: contentReveal 1.2s var(--ease);
+        .list-wrap {
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
 
-        /* --- THE CONNECTIVE LINE (Fixes Section Separation) --- */
-        .scroll-indicator {
-            width: 1px;
-            background: linear-gradient(to bottom, var(--champagne), transparent);
-            height: 120px;
-            margin-left: 5px;
-            animation: lineGrow 2s ease-in-out infinite alternate;
-        }
-
-        /* --- OVERLAPPING CONTENT SECTIONS --- */
-        .integrated-section {
-            background: var(--charcoal);
-            padding: 120px 8%;
-            margin-top: -50px; /* Overlaps hero for continuity */
-            border-radius: 40px 40px 0 0;
-            box-shadow: 0 -40px 100px rgba(0,0,0,0.5);
-            position: relative;
-            z-index: 5;
-        }
-
-        .section-header {
-            max-width: 800px;
-            margin-bottom: 80px;
-        }
-
-        .section-header h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            margin-top: 10px;
-        }
-
-        /* --- MODERN INTERACTIVE LAYOUT --- */
-        .bento-flow {
+        .list-row {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1px; /* Precision thin line gaps */
-            background: var(--border);
+            grid-template-columns: 0.5fr 1.5fr auto;
             border: 1px solid var(--border);
-        }
-
-        .flow-card {
-            background: var(--charcoal);
-            padding: 60px 40px;
-            transition: var(--ease);
-        }
-
-        .flow-card:hover {
-            background: #1a1a1c;
-        }
-
-        .flow-card h3 {
-            font-size: 0.8rem;
-            color: var(--champagne-dim);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 20px;
-        }
-
-        .flow-card p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: var(--text-silver);
-        }
-
-        /* --- THE MASTER CTA --- */
-        .btn-master {
-            display: inline-block;
-            background: var(--champagne);
-            color: #000;
-            padding: 22px 50px;
-            font-weight: 600;
-            text-decoration: none;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            margin-top: 50px;
+            padding: 30px 40px;
             transition: var(--transition);
         }
 
-        .btn-master:hover {
-            transform: scale(1.02);
-            filter: brightness(1.1);
+        .list-row:hover {
+            border-color: var(--gold);
+            transform: translateX(10px);
         }
 
-        /* --- RESPONSIVENESS --- */
-        @media (max-width: 768px) {
-            .hero { height: 70vh; padding-bottom: 60px; }
-            .integrated-section { padding: 80px 6%; }
+        /* --- PRESTIGE BUTTONS --- */
+        .btn-core {
+            display: inline-block;
+            background: var(--gold);
+            color: #000;
+            padding: 18px 40px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            border-radius: 2px;
+            transition: 0.4s;
+        }
+
+        .btn-core:hover {
+            background: #fff;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #fff;
+            border: 1px solid var(--border);
+        }
+
+        /* --- RESPONSIVE OPTIMIZATION --- */
+        @media (max-width: 900px) {
+            .frame-split { grid-template-columns: 1fr; }
+            .split-image { height: 40vh; }
+            .list-row { grid-template-columns: 1fr; gap: 15px; text-align: center; }
         }
     </style>
 </head>
@@ -194,50 +198,64 @@
     <nav>
         <div class="nav-inner">
             <a href="#" class="logo">THE SANCTUARY</a>
-            <a href="#" class="btn-master" style="padding: 12px 24px; margin: 0;">Support</a>
+            <a href="#" class="btn-core" style="padding: 10px 20px;">GIVING</a>
         </div>
     </nav>
 
     <main>
-        <section class="hero">
-            <span class="hero-meta">Est. 1984 // Digital Ministry</span>
-            <h1>Divine <br> <i>Architecture.</i></h1>
-            <div class="scroll-indicator"></div>
+        <section class="cinematic-frame">
+            <img src="https://images.unsplash.com/photo-1438232992991-995b7058bbb3?auto=format&fit=crop&q=80&w=2000" class="frame-image" alt="Cathedral">
+            <div class="frame-header">
+                <span style="color: var(--gold); letter-spacing: 5px; text-transform: uppercase; font-weight: 600; font-size: 0.75rem;">Chapter 01 // V.4.0</span>
+                <h1>Excellence is <br> <i>by Mandate.</i></h1>
+                <p style="color: var(--text-dim); margin-bottom: 40px; font-size: 1.2rem;">Bridging global faith with institutional precision.</p>
+                <div style="display: flex; gap: 20px; justify-content: center;">
+                    <a href="#" class="btn-core">Begin Experience</a>
+                </div>
+            </div>
         </section>
 
-        <section class="integrated-section">
-            <div class="section-header">
-                <span style="color: var(--champagne-dim); letter-spacing: 3px;">01 // OUR MANDATE</span>
-                <h2>Redefining the <br> <i>Spiritual Interface.</i></h2>
-                <p style="color: var(--text-dim); margin-top: 25px; font-size: 1.1rem; max-width: 600px;">
-                    We believe that digital space should be treated with the same reverence as a physical cathedral. No noise. No clutter. Just presence.
-                </p>
+        <section class="frame-split">
+            <div class="split-image"></div>
+            <div class="split-text">
+                <span style="color: var(--gold);">02 // THE MISSION</span>
+                <h2 style="font-family: var(--font-display); font-size: 3rem; margin: 20px 0;">Beyond the <br> Horizon.</h2>
+                <p style="color: var(--text-dim); margin-bottom: 30px; font-size: 1.1rem; line-height: 1.8;">Our digital ecosystem is meticulously crafted to function as a global anchor, prioritizing theological depth over modern noise.</p>
+                <a href="#" class="btn-core btn-outline">Explore Vision</a>
             </div>
+        </section>
 
-            <div class="bento-flow">
-                <div class="flow-card">
-                    <h3>Archive</h3>
-                    <p>Access 5,000+ hours of liturgical discourse and theological study.</p>
-                </div>
-                <div class="flow-card">
-                    <h3>Impact</h3>
-                    <p>Transparent resource distribution across 45 countries in real-time.</p>
-                </div>
-                <div class="flow-card">
-                    <h3>Global</h3>
-                    <p>Connect with a worldwide network of digital-first community groups.</p>
-                </div>
+        <section class="frame-grid">
+            <div style="width: 100%; max-width: 1200px; text-align: center; margin-bottom: 100px;">
+                <span style="color: var(--gold);">03 // RESOURCES</span>
+                <h2 style="font-family: var(--font-display); font-size: 3.5rem;">The Ecosystem.</h2>
             </div>
-
-            <div style="text-align: center;">
-                <a href="#" class="btn-master">Enter the Sanctuary</a>
+            
+            <div class="list-wrap">
+                <div class="list-row">
+                    <div style="color: var(--gold); font-weight: 800; font-size: 1.5rem;">[ 01 ]</div>
+                    <div>
+                        <h3 style="font-size: 1.5rem; margin-bottom: 5px;">The Archives</h3>
+                        <p style="color: var(--text-dim);">5,000+ Hours of Liturgical Study</p>
+                    </div>
+                    <a href="#" class="btn-core btn-outline" style="padding: 10px 25px;">Enter</a>
+                </div>
+                
+                <div class="list-row">
+                    <div style="color: var(--gold); font-weight: 800; font-size: 1.5rem;">[ 02 ]</div>
+                    <div>
+                        <h3 style="font-size: 1.5rem; margin-bottom: 5px;">Impact Report</h3>
+                        <p style="color: var(--text-dim);">Transparency Data 2026</p>
+                    </div>
+                    <a href="#" class="btn-core btn-outline" style="padding: 10px 25px;">Enter</a>
+                </div>
             </div>
         </section>
     </main>
 
-    <footer style="padding: 100px 8%; border-top: 1px solid var(--border); background: var(--obsidian);">
+    <footer style="padding: 100px 10%; border-top: 1px solid var(--border);">
         <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 40px;">
-            <div class="logo">THE SANCTUARY</div>
+            <a href="#" class="logo">THE SANCTUARY</a>
             <p style="color: var(--text-dim); font-size: 0.7rem; letter-spacing: 3px;">&copy; 2026 INSTITUTIONAL DIGITAL ARCHITECTURE</p>
         </div>
     </footer>
